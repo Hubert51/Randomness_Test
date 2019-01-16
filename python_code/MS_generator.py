@@ -12,3 +12,4 @@ class MS_generator(object):
 
     def __init__(self):
         pass
+
