@@ -37,17 +37,19 @@ cdef class LCG(PRNG):
     cdef readonly uint32_t state
     cdef uint32_t mod
     cdef uint32_t a
+    cdef uint32_t c
 
-    def __init__(self, uint32_t mod, uint32_t a,uint32_t seed):
+    def __init__(self, uint32_t mod, uint32_t a, uint32_t c,uint32_t seed):
         if seed%2==0:
             raise ValueError("Seed must be odd")
         self.state=seed
         self.mod = mod
         self.a = a
+	self.c = 0
 
     cpdef uint32_t randi(self):
         '''Returns an int between 0 and self.mod'''
-        self.state = (self.a * self.state) % self.mod
+        self.state = (self.a * self.state + self.c) % self.mod
         return self.state
 
     cpdef float rand(self):
@@ -55,7 +57,7 @@ cdef class LCG(PRNG):
         return (<float> self.randi()) / self.mod
 
 cpdef LCG LCG_RANDU(seed):
-    return LCG(1<<31, 65539, seed)
+    return LCG(1<<31, 65539, seed, c=0)
 
 cdef class MiddleSquare_WeylSequence(PRNG):
     """Middle Square generator using the Weyl sequence
