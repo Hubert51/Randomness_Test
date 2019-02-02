@@ -37,6 +37,14 @@ class Table(object):
     clover_index = np.arange(40,52)
     all_suit = ["Heart", "Spade", "Diamond", "Club"]
     all_hand = ["hand1", "hand2", "hand3", "hand4"]
+    feature_dict = {
+        "longest": {"4":0, "5":1, "6":2, "7":3, "8":4, "9":5},
+        "shortest": {"3":6 , "2": 7, "1": 8, "0": 9},
+        "score" : [ 10 ] * 7 + [ 11 ] * 5 + [ 12 ] * 25
+    }
+    feature_des = "[ longestSuit==4, longestSuit==5, longestSuit==6, longestSuit==7, longestSuit==8,\n" \
+                  " longestSuit==9, shortestSuit==3, shortestSuit==2, shortestSuit==1, shortestSuit==0,\n " \
+                  " 0 <= score <= 7, 8 <= score <= 12, 13 <= score   ]"
 
     card = create_card_dict()
 
@@ -71,7 +79,68 @@ class Table(object):
             points += Table.card[num]["point"]
         return points
 
+    def calculate_point2(self, hand=0):
+        one_hand = self.hand[hand, :]
+
+        temp =  4 * len(one_hand[one_hand % 13 == 0] ) + \
+                3 * len(one_hand[one_hand % 13 == 12] ) + \
+                2 * len(one_hand[one_hand % 13 == 11]) + \
+                1 * len(one_hand[one_hand % 13 == 10])
+
+        return temp
 
 
+    def extract_hand_feature(self, hand=0):
+        """
+        :param hand:
+        :return: a list of feature  the size is 1X13 list
+        this list has three features
+        [ [longest suit], [shortest suit], [score range] ]
+        in longest suit list: [4card, 5card, 6card, 7card, 8card, 9card]
+        in shortest suit list: [Three card, Doubleton, Singleton, Void]
+        in score list: [0~7, 8~14, 15~37]
+
+        """
+        suit_list = []
+        features = [ 0 ] * 13
+        one_hand = self.hand[hand, :]
+        for i in range(4):
+            suit_list.append( len(one_hand[ (i*13 <= one_hand) & (one_hand < (i+1)*13) ] ) )
+        suit_list.sort(reverse=True)
+        pattern = "".join( str(x) for x in suit_list )
+        print(pattern)
+        if len(pattern) > 5:
+            return None
+
+        # calculate the longest
+        element = pattern[0]
+        index = self.feature_dict["longest"][element]
+        # print(index)
+        features[index] = 1
+
+        # calculate the shortest
+        element = pattern[-1]
+        index = self.feature_dict["shortest"][element]
+        # print(index)
+        features[index] = 1
+
+        # calculate the score
+        score = self.calculate_point2()
+        index = self.feature_dict["score"][score]
+        features[index] = 1
+
+        # print(features)
+        return features
+
+        # temp = np.array(["4432", "4432", "4434"])
+        # print(np.where(temp == pattern)[0][1] )
+        #
+        # print()
 
 
+    def extract_feature(self):
+        return self.extract_hand_feature()
+
+
+    def describe_feature(self):
+        return self.feature_des

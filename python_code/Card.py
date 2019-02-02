@@ -4,7 +4,7 @@ class Card(object):
         """
             Three attributes:
             Value is 1->A, 2->2, ... 10->10, 11->Jack, 12->Queen, 13-> King
-            Type is 1->Heart, 2->Spade, 3->Diamond, 4->Club
+            Type is 1->Spades, 2->Hearts, 3->Diamonds, 4->Clubs
             point is A->4, King->3, Queen->2, Jack->1
         """
         self.value = number % 13 + 1
@@ -23,8 +23,8 @@ class Card(object):
 
 
     def __repr__(self):
-        four_type = ["Heart", 'Spade', 'Diamond', 'Club']
-        return "{} {}".format(four_type[self.type-1], self.value)
+        four_type = ["Spades", 'Hearts', 'Diamonds', 'Clubs']
+        return "{} of {}".format(four_type[self.type-1], self.value)
 
 
 """
