@@ -31,6 +31,7 @@ if __name__ == '__main__':
     list1 = list(range(52))
     data = [0, 0, 0, 0]
     itr = 0
+    total_time = 0
     while True:
         random.shuffle(list1)
         my_table = Table(list1)
@@ -40,10 +41,12 @@ if __name__ == '__main__':
 
         itr += 1
 
-        if itr % 1000 == 0 and itr != 0:
+        if itr % 10000000 == 0 and itr != 0:
             f = open("data.txt", "a")
             f.write(str(data) + "\n")
             f.close()
             data = [0, 0, 0, 0]
-
+            total_time += 1
+        if total_time == 10000:
+            break
     # print(my_table.show())
