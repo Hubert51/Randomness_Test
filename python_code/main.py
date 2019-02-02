@@ -67,7 +67,6 @@ if __name__ == '__main__':
         for j in range(4):
             points = my_table.calculate_point(j)
             data[j] += points
-
         itr += 1
 
         if itr % 10000000 == 0 and itr != 0:
@@ -75,5 +74,8 @@ if __name__ == '__main__':
             f.write(str(data) + "\n")
             f.close()
             data = [0, 0, 0, 0]
+            total_time += 1
+        if total_time == 10000:
+            break
 
     # print(my_table.show())
