@@ -70,8 +70,8 @@ if __name__ == '__main__':
 
         itr += 1
 
-        if itr % 1000 == 0 and itr != 0:
-            f = open("data1.txt", "a")
+        if itr % 10000000 == 0 and itr != 0:
+            f = open("data.txt", "a")
             f.write(str(data) + "\n")
             f.close()
             data = [0, 0, 0, 0]
