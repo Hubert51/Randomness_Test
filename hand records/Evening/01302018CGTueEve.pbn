@@ -1,0 +1,1081 @@
+% Dealer4 ver 4.70
+[Event "Tue Eve CG"]
+[Site "Shelly"]
+[Date "01/30/2018"]
+[Board "1"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:KQ654.JT6.8.T875 8.8543.Q732.AQ96 J.A972.J965.KJ32 AT9732.KQ.AKT4.4"]
+[DoubleDummyTricks "11117111177979178791"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  7
+N NT  1
+E  S  9
+E  H  7
+E  D  9
+E  C  1
+E NT  7
+S  S  1
+S  H  1
+S  D  1
+S  C  7
+S NT  1
+W  S  8
+W  H  7
+W  D  9
+W  C  1
+W NT  7
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "2"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:J.T873.A5.AK9873 T9765.94.983.T52 KQ32.AJ.QJT42.J4 A84.KQ652.K76.Q6"]
+[DoubleDummyTricks "1111111111888aa989aa"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S  8
+E  H  8
+E  D 10
+E  C 10
+E NT  8
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S  8
+W  H  9
+W  D 10
+W  C 10
+W NT  9
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "3"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:AQ53.32.K8.QT765 KJ984.AJT8.T76.J 762.Q97.AJ932.92 T.K654.Q54.AK843"]
+[DoubleDummyTricks "11111111118887788877"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S  8
+E  H  8
+E  D  7
+E  C  7
+E NT  8
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S  8
+W  H  8
+W  D  7
+W  C  7
+W NT  8
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "4"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:976.AJ53.QT82.T9 J42.T94.AK64.J74 AK5.KQ876.J75.85 QT83.2.93.AKQ632"]
+[DoubleDummyTricks "1811a1811a1187111871"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  8
+N  H  1
+N  D  1
+N  C 10
+N NT  1
+E  S  1
+E  H  8
+E  D  7
+E  C  1
+E NT  1
+S  S  8
+S  H  1
+S  D  1
+S  C 10
+S NT  1
+W  S  1
+W  H  8
+W  D  7
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "5"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:KQ2.K82.AT62.J54 A976.A743.Q.9732 T853.65.J985.KQ6 J4.QJT9.K743.AT8"]
+[DoubleDummyTricks "11171111717791877918"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  7
+N  C  1
+N NT  1
+E  S  7
+E  H  9
+E  D  1
+E  C  8
+E NT  7
+S  S  1
+S  H  1
+S  D  7
+S  C  1
+S NT  1
+W  S  7
+W  H  9
+W  D  1
+W  C  8
+W NT  7
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "6"]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:K542.AK98.J754.2 A.JT.A32.QJT9843 J983.Q54.KQ9.K65 QT76.7632.T86.A7"]
+[DoubleDummyTricks "11118111181888118891"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  8
+N NT  1
+E  S  8
+E  H  8
+E  D  8
+E  C  1
+E NT  1
+S  S  1
+S  H  1
+S  D  1
+S  C  8
+S NT  1
+W  S  8
+W  H  8
+W  D  9
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "7"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:86.KQ4.J76532.97 KQJT53.JT32..T64 A742.985.AT9.K53 9.A76.KQ84.AQJ82"]
+[DoubleDummyTricks "11171111718b91a8b919"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  7
+N  C  1
+N NT  1
+E  S 11
+E  H  9
+E  D  1
+E  C 10
+E NT  8
+S  S  1
+S  H  1
+S  D  7
+S  C  1
+S NT  1
+W  S 11
+W  H  9
+W  D  1
+W  C  9
+W NT  8
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "8"]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:643.AKQT853.T.J5 KQ97.642.A94.T86 AT82..KJ76.AKQ73 J5.J97.Q8532.942"]
+[DoubleDummyTricks "1111111111cac9acac9a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S 10
+E  H 12
+E  D  9
+E  C 10
+E NT 12
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S 10
+W  H 12
+W  D  9
+W  C 10
+W NT 12
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "9"]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:9763.KT74.976.K9 AJT.J5.T5.AQT653 5.Q63.AKJ432.872 KQ842.A982.Q8.J4"]
+[DoubleDummyTricks "11181111817b71b7b71b"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  8
+N  C  1
+N NT  1
+E  S 11
+E  H  7
+E  D  1
+E  C 11
+E NT  7
+S  S  1
+S  H  1
+S  D  8
+S  C  1
+S NT  1
+W  S 11
+W  H  7
+W  D  1
+W  C 11
+W NT  7
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "10"]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:7.T7432.KT974.QJ AT6.AK8.86.K8643 9542.J96.AQJ.752 KQJ83.Q5.532.AT9"]
+[DoubleDummyTricks "8b11b8b11b1117111171"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S 11
+N  H  1
+N  D  1
+N  C 11
+N NT  8
+E  S  1
+E  H  1
+E  D  7
+E  C  1
+E NT  1
+S  S 11
+S  H  1
+S  D  1
+S  C 11
+S NT  8
+W  S  1
+W  H  1
+W  D  7
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "11"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:432.KJ.JT3.QT654 AKQJ75.72.952.32 T98.Q864.Q4.AKJ8 6.AT953.AK876.97"]
+[DoubleDummyTricks "11117111178989189891"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  7
+N NT  1
+E  S  9
+E  H  8
+E  D  9
+E  C  1
+E NT  8
+S  S  1
+S  H  1
+S  D  1
+S  C  7
+S NT  1
+W  S  9
+W  H  8
+W  D  9
+W  C  1
+W NT  8
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "12"]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:9.A8653.JT765.A9 T73.KQT4.Q942.73 AK52.7.A83.KQT64 QJ864.J92.K.J852"]
+[DoubleDummyTricks "1111111111a88baa88ba"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S  8
+E  H  8
+E  D 11
+E  C 10
+E NT 10
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S  8
+W  H  8
+W  D 11
+W  C 10
+W NT 10
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "13"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:J74.JT2.AJ3.J864 K65.K986.QT972.5 T9832.Q743.54.T3 AQ.A5.K86.AKQ972"]
+[DoubleDummyTricks "1111111111c8acbc9acb"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S  8
+E  H 10
+E  D 12
+E  C 11
+E NT 12
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S  9
+W  H 10
+W  D 12
+W  C 11
+W NT 12
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "14"]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:T75.A6532.QT74.Q J3.Q4.K6532.A743 A64.J987.A9.KT85 KQ982.KT.J8.J962"]
+[DoubleDummyTricks "17178171781191111911"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  7
+N  H  1
+N  D  7
+N  C  8
+N NT  1
+E  S  1
+E  H  9
+E  D  1
+E  C  1
+E NT  1
+S  S  7
+S  H  1
+S  D  7
+S  C  8
+S NT  1
+W  S  1
+W  H  9
+W  D  1
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "15"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:T432.854.K932.T7 A97.A732.74.AJ92 J85.KQT9.QJT6.K8 KQ6.J6.A85.Q6543"]
+[DoubleDummyTricks "11111111119871a9871a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S  8
+E  H  7
+E  D  1
+E  C 10
+E NT  9
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S  8
+W  H  7
+W  D  1
+W  C 10
+W NT  9
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "16"]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:752.T.AJ753.8742 .J8542.KQ94.QJ65 KJ984.AK96.T2.T3 AQT63.Q73.86.AK9"]
+[DoubleDummyTricks "91989919891111111111"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  9
+N  D  8
+N  C  9
+N NT  9
+E  S  1
+E  H  1
+E  D  1
+E  C  1
+E NT  1
+S  S  1
+S  H  9
+S  D  8
+S  C  9
+S NT  9
+W  S  1
+W  H  1
+W  D  1
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "17"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:T876.63.AT82.AK6 K43.AK42.J.QJ983 Q52.JT75.Q97.T72 AJ9.Q98.K6543.54"]
+[DoubleDummyTricks "11111111117897988979"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S  8
+E  H  9
+E  D  7
+E  C  9
+E NT  7
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S  8
+W  H  9
+W  D  7
+W  C  9
+W NT  8
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "18"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:J.J76.T972.K8762 K74.942.AKJ5.Q95 AQ632.AQ5.Q843.4 T985.KT83.6.AJT3"]
+[DoubleDummyTricks "77117877171118111181"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  7
+N  H  1
+N  D  1
+N  C  7
+N NT  7
+E  S  1
+E  H  1
+E  D  8
+E  C  1
+E NT  1
+S  S  7
+S  H  7
+S  D  1
+S  C  7
+S NT  8
+W  S  1
+W  H  1
+W  D  8
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "19"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:8.65432.8432.543 AK65.AJ8.J9.KQT9 Q97432.97.AT6.A7 JT.KQT.KQ75.J862"]
+[DoubleDummyTricks "1111111111a899aa899a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S  8
+E  H  9
+E  D  9
+E  C 10
+E NT 10
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S  8
+W  H  9
+W  D  9
+W  C 10
+W NT 10
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "20"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:A9862.A6.863.KQ2 Q.QT7.A542.AJ986 T7543.J93.KQJ9.3 KJ.K8542.T7.T754"]
+[DoubleDummyTricks "11819118191917179171"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  8
+N  D  1
+N  C  9
+N NT  1
+E  S  9
+E  H  1
+E  D  7
+E  C  1
+E NT  1
+S  S  1
+S  H  8
+S  D  1
+S  C  9
+S NT  1
+W  S  9
+W  H  1
+W  D  7
+W  C  1
+W NT  7
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "21"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:K96.QT9.6.AQ9652 J53..AQJT32.KT87 A872.AKJ653.K84. QT4.8742.975.J43"]
+[DoubleDummyTricks "abc19aac191118111181"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S 11
+N  H 12
+N  D  1
+N  C  9
+N NT 10
+E  S  1
+E  H  1
+E  D  8
+E  C  1
+E NT  1
+S  S 10
+S  H 12
+S  D  1
+S  C  9
+S NT 10
+W  S  1
+W  H  1
+W  D  8
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "22"]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:A84.T7.T43.AQJ54 K76.AK932.Q6.732 T953.QJ64.A95.86 QJ2.85.KJ872.KT9"]
+[DoubleDummyTricks "71777111711711117111"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  7
+N  D  7
+N  C  7
+N NT  7
+E  S  7
+E  H  1
+E  D  1
+E  C  1
+E NT  1
+S  S  1
+S  H  1
+S  D  7
+S  C  1
+S NT  1
+W  S  7
+W  H  1
+W  D  1
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "23"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:J83.AJT2.5.Q9643 Q7.KQ76543.AT3.8 642..KQJ86.AKT72 AKT95.98.9742.J5"]
+[DoubleDummyTricks "11179111791191117911"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  7
+N  C  9
+N NT  1
+E  S  1
+E  H  9
+E  D  1
+E  C  1
+E NT  1
+S  S  1
+S  H  1
+S  D  7
+S  C  9
+S NT  1
+W  S  7
+W  H  9
+W  D  1
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "24"]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:AQT4.K63.432.875 63.J9.KQT765.932 975.QT42.8.QJT64 KJ82.A875.AJ9.AK"]
+[DoubleDummyTricks "911a1911a11711711117"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D 10
+N  C  1
+N NT  9
+E  S  7
+E  H  1
+E  D  1
+E  C  7
+E NT  1
+S  S  1
+S  H  1
+S  D 10
+S  C  1
+S NT  9
+W  S  1
+W  H  1
+W  D  1
+W  C  7
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "25"]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:K5.T53.KQ765.765 AQ842.K976.T.QJ8 6.AQ4.J98432.AT3 JT973.J82.A.K942"]
+[DoubleDummyTricks "11181111811a91a1a91a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  8
+N  C  1
+N NT  1
+E  S 10
+E  H  9
+E  D  1
+E  C 10
+E NT  1
+S  S  1
+S  H  1
+S  D  8
+S  C  1
+S NT  1
+W  S 10
+W  H  9
+W  D  1
+W  C 10
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "26"]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:K76.65.KQ53.9743 QT9.J83.JT62.AQ8 J854.Q2.A97.KT52 A32.AKT974.84.J6"]
+[DoubleDummyTricks "91971919711111711117"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  9
+N  D  7
+N  C  1
+N NT  9
+E  S  1
+E  H  1
+E  D  1
+E  C  7
+E NT  1
+S  S  1
+S  H  9
+S  D  7
+S  C  1
+S NT  9
+W  S  1
+W  H  1
+W  D  1
+W  C  7
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "27"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:AK.J.QJ65432.AT8 QJT4.T9876.A.Q75 972.Q4.KT98.KJ62 8653.AK532.7.943"]
+[DoubleDummyTricks "711bb711bb1871118711"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D 11
+N  C 11
+N NT  7
+E  S  8
+E  H  7
+E  D  1
+E  C  1
+E NT  1
+S  S  1
+S  H  1
+S  D 11
+S  C 11
+S NT  7
+W  S  8
+W  H  7
+W  D  1
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "28"]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:KJT82.K9.742.Q87 964.Q765.63.T943 Q7.JT82.AKJ5.652 A53.A43.QT98.AKJ"]
+[DoubleDummyTricks "11117111178777177171"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  7
+N NT  1
+E  S  7
+E  H  7
+E  D  7
+E  C  1
+E NT  8
+S  S  1
+S  H  1
+S  D  1
+S  C  7
+S NT  1
+W  S  7
+W  H  1
+W  D  7
+W  C  1
+W NT  7
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "29"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:T64.87652.K5.Q82 AQ8.JT43.7632.K6 732.Q9.AJT9.J973 KJ95.AK.Q84.AT54"]
+[DoubleDummyTricks "1111111111aa9a9aa9a9"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S 10
+E  H  9
+E  D 10
+E  C  9
+E NT 10
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S 10
+W  H  9
+W  D 10
+W  C  9
+W NT 10
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "30"]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:KJ9762.5.86.T874 T.AJ764.K72.AJ92 AQ53.KT3.AJT54.6 84.Q982.Q93.KQ53"]
+[DoubleDummyTricks "11918119187a1817a181"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  9
+N  D  1
+N  C  8
+N NT  1
+E  S 10
+E  H  1
+E  D  8
+E  C  1
+E NT  7
+S  S  1
+S  H  9
+S  D  1
+S  C  8
+S NT  1
+W  S 10
+W  H  1
+W  D  8
+W  C  1
+W NT  7
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "31"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:KT942.A75.A742.2 83.Q8.KQJ53.AK74 AQJ.KJT4.86.J986 765.9632.T9.QT53"]
+[DoubleDummyTricks "9ba119ba111111811118"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S 11
+N  H 10
+N  D  1
+N  C  1
+N NT  9
+E  S  1
+E  H  1
+E  D  1
+E  C  8
+E NT  1
+S  S 11
+S  H 10
+S  D  1
+S  C  1
+S NT  9
+W  S  1
+W  H  1
+W  D  1
+W  C  8
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "32"]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:.Q942.QJT854.985 QJ5.KJ86.K6.QT74 KT98762.A3..KJ62 A43.T75.A9732.A3"]
+[DoubleDummyTricks "97771917711111117111"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  7
+N  H  7
+N  D  7
+N  C  1
+N NT  9
+E  S  1
+E  H  1
+E  D  1
+E  C  1
+E NT  1
+S  S  1
+S  H  7
+S  D  7
+S  C  1
+S NT  9
+W  S  7
+W  H  1
+W  D  1
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "33"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:KQ73.Q953.J8.J53 AJ85.AKT.QT6.AK4 T9.J872.A9754.T6 642.64.K32.Q9872"]
+[DoubleDummyTricks "1111111111ba78baa78b"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S 10
+E  H  7
+E  D  8
+E  C 11
+E NT 11
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S 10
+W  H  7
+W  D  8
+W  C 11
+W NT 10
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "34"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:A43.8.53.QJ87432 T.KT6532.742.T96 KJ86.J.AKT86.AK5 Q9752.AQ974.QJ9."]
+[DoubleDummyTricks "1191111911791ac791bc"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  9
+N  D  1
+N  C  1
+N NT  1
+E  S  9
+E  H  1
+E  D 10
+E  C 12
+E NT  7
+S  S  1
+S  H  9
+S  D  1
+S  C  1
+S NT  1
+W  S  9
+W  H  1
+W  D 11
+W  C 12
+W NT  7
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "35"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:KQ6.AQJ3.J643.T3 82.T9876..AQJ952 AT7.K4.AK52.K864 J9543.52.QT987.7"]
+[DoubleDummyTricks "b88a8b98a81111111111"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  8
+N  H  8
+N  D 10
+N  C  8
+N NT 11
+E  S  1
+E  H  1
+E  D  1
+E  C  1
+E NT  1
+S  S  9
+S  H  8
+S  D 10
+S  C  8
+S NT 11
+W  S  1
+W  H  1
+W  D  1
+W  C  1
+W NT  1
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "36"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:AQ93.AQ652.J6.52 T864.K7.KT9852.Q J752.3.A43.KT763 K.JT984.Q7.AJ984"]
+[DoubleDummyTricks "11111111111871718717"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  1
+N  D  1
+N  C  1
+N NT  1
+E  S  8
+E  H  7
+E  D  1
+E  C  7
+E NT  1
+S  S  1
+S  H  1
+S  D  1
+S  C  1
+S NT  1
+W  S  8
+W  H  7
+W  D  1
+W  C  7
+W NT  1
+

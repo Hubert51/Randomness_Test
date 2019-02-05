@@ -7,8 +7,7 @@ from os.path import join
 import datetime
 import re
 
-file_root = '/home/thom/Downloads/hand records'
-fname = '/home/thom/Downloads/hand records/Morning/181030m.pbn'
+file_root = '../hand records'
 
 face_to_val = {str(x + 2): x + 1 for x in range(8)}
 face_to_val.update({'T': 9, 'J': 10, 'Q': 11, 'K': 12, 'A': 13})
