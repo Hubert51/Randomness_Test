@@ -38,13 +38,20 @@ class Table(object):
     all_suit = ["Heart", "Spade", "Diamond", "Club"]
     all_hand = ["hand1", "hand2", "hand3", "hand4"]
     feature_dict = {
-        "longest": {"4":0, "5":1, "6":2, "7":3, "8":4, "9":5},
-        "shortest": {"3":6 , "2": 7, "1": 8, "0": 9},
-        "score" : [ 10 ] * 7 + [ 11 ] * 5 + [ 12 ] * 25
+        "longest": {"4":0, "5":1, "6":2, "7":3, "8":4, "9":5, "10": 6},
+        "shortest": {"3":7 , "2": 8, "1": 9, "0": 10},
+        "score" : [ 11 ] * 7 + [ 12 ] * 5 + [ 13 ] * 25,
+        "highest": 14
     }
-    feature_des = "[ longestSuit==4, longestSuit==5, longestSuit==6, longestSuit==7, longestSuit==8,\n" \
-                  " longestSuit==9, shortestSuit==3, shortestSuit==2, shortestSuit==1, shortestSuit==0,\n " \
-                  " 0 <= score <= 7, 8 <= score <= 12, 13 <= score   ]"
+    feature_des = "[ longestSuit==4, longestSuit==5, longestSuit==6, longestSuit==7, longestSuit==8, longestSuit==9, longestSuit>=10\n" \
+                  " shortestSuit==3, shortestSuit==2, shortestSuit==1, shortestSuit==0,\n " \
+                  " 0 <= score <= 7, 8 <= score <= 12, 13 <= score   " \
+                  " hand1 == highest score ]"
+    feat_prob = [
+        0.3508, 0.4434, 0.1655, 0.0353, 0.0047, 0.00037, 0.000017303006,
+        0.1054, 0.5380, 0.3055, 0.0512,
+        0.285846, 0.446251, 0.267, 0.25
+    ]
 
     card = create_card_dict()
 
@@ -102,18 +109,19 @@ class Table(object):
 
         """
         suit_list = []
-        features = [ 0 ] * 13
+        features = [ 0 ] * 15
         one_hand = self.hand[hand, :]
         for i in range(4):
             suit_list.append( len(one_hand[ (i*13 <= one_hand) & (one_hand < (i+1)*13) ] ) )
         suit_list.sort(reverse=True)
         pattern = "".join( str(x) for x in suit_list )
-        print(pattern)
-        if len(pattern) > 5:
-            return None
+        # print(pattern)
 
         # calculate the longest
-        element = pattern[0]
+        if len(pattern) >= 5:
+            element = "10"
+        else:
+            element = pattern[0]
         index = self.feature_dict["longest"][element]
         # print(index)
         features[index] = 1
@@ -129,6 +137,13 @@ class Table(object):
         index = self.feature_dict["score"][score]
         features[index] = 1
 
+        # calculate whether this hand is highest score:
+        scores = []
+        for i in range(4):
+            scores.append(self.calculate_point2(i))
+        if max(scores) == scores[0]:
+            features[self.feature_dict["highest"]] = 1
+
         # print(features)
         return features
 
@@ -141,6 +156,9 @@ class Table(object):
     def extract_feature(self):
         return self.extract_hand_feature()
 
+    def get_feat_prob(self):
+        return self.feat_prob
 
     def describe_feature(self):
         return self.feature_des
+
