@@ -30,25 +30,21 @@ def create_card_dict():
     return card
 
 
+all_suit = ["Heart", "Spade", "Diamond", "Club"]
+all_hand = ["hand1", "hand2", "hand3", "hand4"]
+feature_dict = {
+    "longest": {"4":0, "5":1, "6":2, "7":3, "8":4, "9":5},
+    "shortest": {"3":6 , "2": 7, "1": 8, "0": 9},
+    "score" : [ 10 ] * 7 + [ 11 ] * 5 + [ 12 ] * 25
+}
+feature_des = ['longestSuit==4', 'longestSuit==5', 'longestSuit==6', 'longestSuit==7', 'longestSuit==8',
+               'longestSuit==9', 'shortestSuit==3', 'shortestSuit==2', 'shortestSuit==1', 'shortestSuit==0',
+               '0 <= score <= 7', '8 <= score <= 12', '13 <= score']
+
+
+# card = create_card_dict()      
+
 class Table(object):
-    heard_index = np.arange(13)
-    spade_index = np.arange(13,26)
-    diamond_index = np.arange(26,39)
-    clover_index = np.arange(40,52)
-    all_suit = ["Heart", "Spade", "Diamond", "Club"]
-    all_hand = ["hand1", "hand2", "hand3", "hand4"]
-    feature_dict = {
-        "longest": {"4":0, "5":1, "6":2, "7":3, "8":4, "9":5},
-        "shortest": {"3":6 , "2": 7, "1": 8, "0": 9},
-        "score" : [ 10 ] * 7 + [ 11 ] * 5 + [ 12 ] * 25
-    }
-    feature_des = "[ longestSuit==4, longestSuit==5, longestSuit==6, longestSuit==7, longestSuit==8,\n" \
-                  " longestSuit==9, shortestSuit==3, shortestSuit==2, shortestSuit==1, shortestSuit==0,\n " \
-                  " 0 <= score <= 7, 8 <= score <= 12, 13 <= score   ]"
-
-    card = create_card_dict()
-
-
     def __init__(self, rdn_list):
         self.hand = np.array(rdn_list).reshape((4,13))
 
@@ -71,15 +67,7 @@ class Table(object):
             result[hand_name] = self.show_one_hand(array)
         return result
 
-
     def calculate_point(self, hand=0):
-        one_hand = self.hand[hand,:]
-        points = 0
-        for num in one_hand:
-            points += Table.card[num]["point"]
-        return points
-
-    def calculate_point2(self, hand=0):
         one_hand = self.hand[hand, :]
 
         temp =  4 * len(one_hand[one_hand % 13 == 0] ) + \
@@ -101,32 +89,31 @@ class Table(object):
         in score list: [0~7, 8~14, 15~37]
 
         """
-        suit_list = []
-        features = [ 0 ] * 13
-        one_hand = self.hand[hand, :]
-        for i in range(4):
-            suit_list.append( len(one_hand[ (i*13 <= one_hand) & (one_hand < (i+1)*13) ] ) )
-        suit_list.sort(reverse=True)
-        pattern = "".join( str(x) for x in suit_list )
-        print(pattern)
-        if len(pattern) > 5:
-            return None
+        features = np.array([ 0 ] * 13)
+        one_hand = self.hand[hand]
+        pattern_ = [0,0,0,0]
+        for card in one_hand:
+            pattern_[(card-1)//13]+=1
+        pattern_.sort(reverse=True)
+        pattern = "".join( str(x) for x in pattern_)
+        if len(pattern) > 5 or sum([int(x) for x in pattern]) != 13:
+            raise RuntimeError("Impossible hand pattern: {}".format(pattern))
 
         # calculate the longest
         element = pattern[0]
-        index = self.feature_dict["longest"][element]
+        index = feature_dict["longest"][element]
         # print(index)
         features[index] = 1
 
         # calculate the shortest
         element = pattern[-1]
-        index = self.feature_dict["shortest"][element]
+        index = feature_dict["shortest"][element]
         # print(index)
         features[index] = 1
 
         # calculate the score
-        score = self.calculate_point2()
-        index = self.feature_dict["score"][score]
+        score = self.calculate_point(hand)
+        index = feature_dict["score"][score]
         features[index] = 1
 
         # print(features)
@@ -138,9 +125,9 @@ class Table(object):
         # print()
 
 
-    def extract_feature(self):
-        return self.extract_hand_feature()
+    def extract_features(self):
+        return sum(self.extract_hand_feature(i) for i in range(4))
 
 
     def describe_feature(self):
-        return self.feature_des
+        return feature_des
