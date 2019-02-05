@@ -32,6 +32,30 @@ feature_string = [
     'p19+'
 ]
 
+theoretical_probabilities = np.array([
+    0.3508,
+    0.4434,
+    0.1655,
+    0.0353,
+    0.0047,
+    0.00037,
+    0.000017,
+    0.0000003,
+    0.000000003,
+    0.000000000006,
+    0.0512,
+    0.3055,
+    0.5380,
+    0.1054,
+    0.00705+0.00651,
+    0.00072,
+    0.285846,
+    0.801244- 0.285846,
+    0.985549 - 0.801244,
+    1 - 0.985549
+    ])
+
+
 fdict = {item : index for index, item in enumerate(feature_string) }
 
 num_features = len(feature_string)
