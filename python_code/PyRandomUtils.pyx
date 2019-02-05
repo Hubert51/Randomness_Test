@@ -45,7 +45,7 @@ cdef class LCG(PRNG):
         self.state=seed
         self.mod = mod
         self.a = a
-	self.c = 0
+        self.c = 0
 
     cpdef uint32_t randi(self):
         '''Returns an int between 0 and self.mod'''
