@@ -1,0 +1,1511 @@
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=ISO-8859-1
+%Creator: BridgeComposer Version 5.43.2
+%Created: 08/31/18 17:05:53 US Mountain Standard Time
+%BCOptions Center GutterH GutterV STBorder STShade
+%BidAndCardSpacing Thin
+%BoardsPerPage 18
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HRTitleDate 0
+%HRTitleEvent "WED 11/21/2018"
+%HRTitleSetID "CG-2018-1243-6454"
+%HRTitleSetIDPrefix "CG"
+%HRTitleSite "TheCommonGame.com"
+%HtmlClubs entity,"http://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"http://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"http://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlOptions NoHyperlinking
+%HtmlSpades entity,"http://bridgecomposer.com/suitimg/s.gif"
+%Margins 250,250,250,250
+%PaperSize 0,2159,2794
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%ShowBoardLabels 2
+%ShowCardTable 2
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "1"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:J52.AT5.AT72.KT6 T3.Q72.J983.Q753 AQ986.96.KQ6.942 K74.KJ843.54.AJ8"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "79587795875485654856"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 140"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  9
+N  H  5
+N  D  8
+N  C  7
+S NT  7
+S  S  9
+S  H  5
+S  D  8
+S  C  7
+E NT  5
+E  S  4
+E  H  8
+E  D  5
+E  C  6
+W NT  5
+W  S  4
+W  H  8
+W  D  5
+W  C  6
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "2"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "N:J8654.4.K832.Q76 KT7.A97.T5.K8543 Q2.QJT832.9764.J A93.K65.AQJ.AT92"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "2354223542b989bba89b"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 460"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  2
+N  S  3
+N  H  5
+N  D  4
+N  C  2
+S NT  2
+S  S  3
+S  H  5
+S  D  4
+S  C  2
+E NT 11
+E  S  9
+E  H  8
+E  D  9
+E  C 11
+W NT 11
+W  S 10
+W  H  8
+W  D  9
+W  C 11
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "3"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "N:J3.763.T854.JT87 AK.AKQJ9842.KJ.4 T84.T.AQ32.KQ962 Q97652.5.976.A53"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "0007900079bbb649ab44"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS -500"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  0
+N  S  0
+N  H  0
+N  D  7
+N  C  9
+S NT  0
+S  S  0
+S  H  0
+S  D  7
+S  C  9
+E NT 11
+E  S 11
+E  H 11
+E  D  6
+E  C  4
+W NT  9
+W  S 10
+W  H 11
+W  D  4
+W  C  4
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "4"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "N:KJ752.Q62.KT6.A5 AT94.JT97.AJ.632 Q863.A5.984.KT98 .K843.Q7532.QJ74"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "78466784666587665877"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 110"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  8
+N  H  4
+N  D  6
+N  C  6
+S NT  7
+S  S  8
+S  H  4
+S  D  6
+S  C  6
+E NT  6
+E  S  5
+E  H  8
+E  D  7
+E  C  6
+W NT  6
+W  S  5
+W  H  8
+W  D  7
+W  C  7
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "5"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:T875.J83.JT65.A8 KJ9.AQ4.K972.642 A42.K5.AQ83.JT75 Q63.T9762.4.KQ93"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "67586675866585765856"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 110"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  6
+N  S  7
+N  H  5
+N  D  8
+N  C  6
+S NT  6
+S  S  7
+S  H  5
+S  D  8
+S  C  6
+E NT  6
+E  S  5
+E  H  8
+E  D  5
+E  C  7
+W NT  6
+W  S  5
+W  H  8
+W  D  5
+W  C  6
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "6"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "N:JT6.Q653.A9543.Q AQ983.2.KT86.T98 4.K9874.J7.AJ543 K752.AJT.Q2.K762"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "3385533855aa578aa588"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS -500"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  3
+N  S  3
+N  H  8
+N  D  5
+N  C  5
+S NT  3
+S  S  3
+S  H  8
+S  D  5
+S  C  5
+E NT 10
+E  S 10
+E  H  5
+E  D  7
+E  C  8
+W NT 10
+W  S 10
+W  H  5
+W  D  8
+W  C  8
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "7"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "N:QJ7532.T.854.KJ9 9.K4.KT7632.QT54 84.AJ9832..A8762 AKT6.Q765.AQJ9.3"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "4772847728956a4955a4"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS -500"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  4
+N  S  7
+N  H  7
+N  D  2
+N  C  8
+S NT  4
+S  S  7
+S  H  7
+S  D  2
+S  C  8
+E NT  9
+E  S  5
+E  H  6
+E  D 10
+E  C  4
+W NT  9
+W  S  5
+W  H  5
+W  D 10
+W  C  4
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "8"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "N:4.T975.QT5.QT874 KT983.843.A82.J5 J765.K62.J.AK963 AQ2.AQJ.K97643.2"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "33528536288a7b58a7b5"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 420"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  3
+N  S  3
+N  H  5
+N  D  2
+N  C  8
+S NT  5
+S  S  3
+S  H  6
+S  D  2
+S  C  8
+E NT  8
+E  S 10
+E  H  7
+E  D 11
+E  C  5
+W NT  8
+W  S 10
+W  H  7
+W  D 11
+W  C  5
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "9"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:63.KQJT8.QJ43.AQ AJ2.73.752.J8743 Q.96542.KT.K9652 KT98754.A.A986.T"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "43a4743a479a3759a375"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS -100"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  4
+N  S  3
+N  H 10
+N  D  4
+N  C  7
+S NT  4
+S  S  3
+S  H 10
+S  D  4
+S  C  7
+E NT  9
+E  S 10
+E  H  3
+E  D  7
+E  C  5
+W NT  9
+W  S 10
+W  H  3
+W  D  7
+W  C  5
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "10"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "N:A9742.J8.J42.854 K8.942.Q983.KJ32 Q63.AKQ753.A6.Q6 JT5.T6.KT75.AT97"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "89944899445339953399"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 140"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  9
+N  H  9
+N  D  4
+N  C  4
+S NT  8
+S  S  9
+S  H  9
+S  D  4
+S  C  4
+E NT  5
+E  S  3
+E  H  3
+E  D  9
+E  C  9
+W NT  5
+W  S  3
+W  H  3
+W  D  9
+W  C  9
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "11"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "N:K3.AJ95.765.AQJ7 87.KT86.Q932.T83 AQ54.Q42.AK4.K96 JT962.73.JT8.542"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "cabaccabac1323113231"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 990"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 12
+N  S 10
+N  H 11
+N  D 10
+N  C 12
+S NT 12
+S  S 10
+S  H 11
+S  D 10
+S  C 12
+E NT  1
+E  S  3
+E  H  2
+E  D  3
+E  C  1
+W NT  1
+W  S  3
+W  H  2
+W  D  3
+W  C  1
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "12"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "N:AQJ7.Q5.A632.A85 T963.KJ86.KJT9.Q 2.AT932.Q854.K76 K854.74.7.JT9432"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "98aa898aa83533534335"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 620"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  8
+N  H 10
+N  D 10
+N  C  8
+S NT  9
+S  S  8
+S  H 10
+S  D 10
+S  C  8
+E NT  3
+E  S  5
+E  H  3
+E  D  3
+E  C  5
+W NT  3
+W  S  4
+W  H  3
+W  D  3
+W  C  5
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "13"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:KT982.T97.J.KT65 6.Q4.AK9753.QJ83 543.K8653.6.A942 AQJ7.AJ2.QT842.7"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "3561635616a87c7a76c7"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 1370"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  3
+N  S  5
+N  H  6
+N  D  1
+N  C  6
+S NT  3
+S  S  5
+S  H  6
+S  D  1
+S  C  6
+E NT 10
+E  S  8
+E  H  7
+E  D 12
+E  C  7
+W NT 10
+W  S  7
+W  H  6
+W  D 12
+W  C  7
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "14"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "N:AQ7.62.A975.AKQ6 T9654.Q73.KQ3.42 K83.A4.T42.JT975 J2.KJT985.J86.83"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "a76aaa76aa3573335733"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 430"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S  7
+N  H  6
+N  D 10
+N  C 10
+S NT 10
+S  S  7
+S  H  6
+S  D 10
+S  C 10
+E NT  3
+E  S  5
+E  H  7
+E  D  3
+E  C  3
+W NT  3
+W  S  5
+W  H  7
+W  D  3
+W  C  3
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "15"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:KQ5.AT74.K87.AT4 76.KQJ3.93.QJ952 T32.8652.JT62.76 AJ984.9.AQ54.K83"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "5565355653877798777a"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 130"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  5
+N  S  5
+N  H  6
+N  D  5
+N  C  3
+S NT  5
+S  S  5
+S  H  6
+S  D  5
+S  C  3
+E NT  8
+E  S  7
+E  H  7
+E  D  7
+E  C  9
+W NT  8
+W  S  7
+W  H  7
+W  D  7
+W  C 10
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "16"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "N:J5.A85.952.KJT95 QT9764.JT32.6.A3 AK2.K76.KQJ73.64 83.Q94.AT84.Q872"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "957aa957aa4853348533"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 400"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  5
+N  H  7
+N  D 10
+N  C 10
+S NT  9
+S  S  5
+S  H  7
+S  D 10
+S  C 10
+E NT  4
+E  S  8
+E  H  5
+E  D  3
+E  C  3
+W NT  4
+W  S  8
+W  H  5
+W  D  3
+W  C  3
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "17"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:985.AJ.Q98765.J5 KQ2.QT853..Q9842 AJT763.K64.AK.AT 4.972.JT432.K763"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "8a5958a5952284822848"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 420"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 10
+N  H  5
+N  D  9
+N  C  5
+S NT  8
+S  S 10
+S  H  5
+S  D  9
+S  C  5
+E NT  2
+E  S  2
+E  H  8
+E  D  4
+E  C  8
+W NT  2
+W  S  2
+W  H  8
+W  D  4
+W  C  8
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "18"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "N:Q6.AKT964.62.AQ8 J72.J73.KJ54.763 T983.Q5.AT873.K4 AK54.82.Q9.JT952"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "a8a86a8a863535635356"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 630"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S  8
+N  H 10
+N  D  8
+N  C  6
+S NT 10
+S  S  8
+S  H 10
+S  D  8
+S  C  6
+E NT  3
+E  S  5
+E  H  3
+E  D  5
+E  C  6
+W NT  3
+W  S  5
+W  H  3
+W  D  5
+W  C  6
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "19"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "N:AKQ6.85.J2.J8652 74.AJ62.AKT74.Q3 JT95.K43.Q953.AT 832.QT97.86.K974"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "79468794686487564875"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 140"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  9
+N  H  4
+N  D  6
+N  C  8
+S NT  7
+S  S  9
+S  H  4
+S  D  6
+S  C  8
+E NT  6
+E  S  4
+E  H  8
+E  D  7
+E  C  5
+W NT  6
+W  S  4
+W  H  8
+W  D  7
+W  C  5
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "20"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "N:8.AT954.QJ654.54 KJT6.QJ8632.87.8 97432..932.AKJ63 AQ5.K7.AKT.QT972"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "45455454558896788957"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 140"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  4
+N  S  5
+N  H  4
+N  D  5
+N  C  5
+S NT  4
+S  S  5
+S  H  4
+S  D  5
+S  C  5
+E NT  8
+E  S  8
+E  H  9
+E  D  6
+E  C  7
+W NT  8
+W  S  8
+W  H  9
+W  D  5
+W  C  7
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "21"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:J4.Q984.J65.KJ86 KT73.AT52.A72.93 A85.J3.KT9843.Q5 Q962.K76.Q.AT742"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "54585545857985879858"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 140"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  5
+N  S  4
+N  H  5
+N  D  8
+N  C  5
+S NT  5
+S  S  4
+S  H  5
+S  D  8
+S  C  5
+E NT  7
+E  S  9
+E  H  8
+E  D  5
+E  C  8
+W NT  7
+W  S  9
+W  H  8
+W  D  5
+W  C  8
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "22"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "N:Q654.5.KJ65.T532 KT72.KQ63.872.98 93.AJT872.AQ94.4 AJ8.94.T3.AKQJ76"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "33892338928954989549"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS -100"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  3
+N  S  3
+N  H  8
+N  D  9
+N  C  2
+S NT  3
+S  S  3
+S  H  8
+S  D  9
+S  C  2
+E NT  8
+E  S  9
+E  H  5
+E  D  4
+E  C  9
+W NT  8
+W  S  9
+W  H  5
+W  D  4
+W  C  9
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "23"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "N:J9862.T43.A9.AT7 T7.Q95.765.J9863 K53.J872.QJT8.K5 AQ4.AK6.K432.Q42"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "57754587546567865679"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 110"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  5
+N  S  7
+N  H  7
+N  D  5
+N  C  4
+S NT  5
+S  S  8
+S  H  7
+S  D  5
+S  C  4
+E NT  6
+E  S  5
+E  H  6
+E  D  7
+E  C  8
+W NT  6
+W  S  5
+W  H  6
+W  D  7
+W  C  9
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "24"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "N:T962.J9832.72.A7 KQJ74.AKQT7.5.K5 A83..JT84.QJT942 5.654.AKQ963.863"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "343363423689a9789a96"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 420"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  3
+N  S  4
+N  H  3
+N  D  3
+N  C  6
+S NT  3
+S  S  4
+S  H  2
+S  D  3
+S  C  6
+E NT  8
+E  S  9
+E  H 10
+E  D  9
+E  C  7
+W NT  8
+W  S  9
+W  H 10
+W  D  9
+W  C  6
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "25"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:Q93.A965.AJ654.8 AT7.QJ842.Q8.T62 KJ65.KT.T73.AKJ5 842.73.K92.Q9743"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "ab9b8bb9b82242522425"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 460"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S 11
+N  H  9
+N  D 11
+N  C  8
+S NT 11
+S  S 11
+S  H  9
+S  D 11
+S  C  8
+E NT  2
+E  S  2
+E  H  4
+E  D  2
+E  C  5
+W NT  2
+W  S  2
+W  H  4
+W  D  2
+W  C  5
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "26"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "N:AK753.Q76.KT9.KJ J82.AK4.QJ63.765 QT4.T952.74.A842 96.J83.A852.QT93"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "8a9788a9784346443464"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 620"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 10
+N  H  9
+N  D  7
+N  C  8
+S NT  8
+S  S 10
+S  H  9
+S  D  7
+S  C  8
+E NT  4
+E  S  3
+E  H  4
+E  D  6
+E  C  4
+W NT  4
+W  S  3
+W  H  4
+W  D  6
+W  C  4
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "27"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "N:K943.K87.9843.83 52.QT643.AKQ2.Q2 T876.AJ9.T65.J54 AQJ.52.J7.AKT976"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "2542125421a79bba89bb"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 430"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  2
+N  S  5
+N  H  4
+N  D  2
+N  C  1
+S NT  2
+S  S  5
+S  H  4
+S  D  2
+S  C  1
+E NT 10
+E  S  7
+E  H  9
+E  D 11
+E  C 11
+W NT 10
+W  S  8
+W  H  9
+W  D 11
+W  C 11
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "28"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "N:AJT3.KQ6.9872.K5 Q76.J974.KQT6.Q2 K9852.T.53.AJ964 4.A8532.AJ4.T873"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "8a5698a5695386453864"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW -500"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 10
+N  H  5
+N  D  6
+N  C  9
+S NT  8
+S  S 10
+S  H  5
+S  D  6
+S  C  9
+E NT  5
+E  S  3
+E  H  8
+E  D  6
+E  C  4
+W NT  5
+W  S  3
+W  H  8
+W  D  6
+W  C  4
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "29"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:Q73.T98.AKJ963.2 AKJ9.63.T.AQJT87 T82.54.874.K9543 654.AKQJ72.Q52.6"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "21052210527bc6abbc6a"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 1430"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  2
+N  S  1
+N  H  0
+N  D  5
+N  C  2
+S NT  2
+S  S  1
+S  H  0
+S  D  5
+S  C  2
+E NT  7
+E  S 11
+E  H 12
+E  D  6
+E  C 10
+W NT 11
+W  S 11
+W  H 12
+W  D  6
+W  C 10
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "30"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "N:KQJ5.T.AQJ652.QJ 87632.K943.9.K96 4.A65.K83.AT8732 AT9.QJ872.T74.54"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "c86cbc86cb0560005600"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 990"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 12
+N  S  8
+N  H  6
+N  D 12
+N  C 11
+S NT 12
+S  S  8
+S  H  6
+S  D 12
+S  C 11
+E NT  0
+E  S  5
+E  H  6
+E  D  0
+E  C  0
+W NT  0
+W  S  5
+W  H  6
+W  D  0
+W  C  0
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "31"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:A843.K.AJ65.AK94 K6.A9876.KQ842.T J97.JT43.T93.J53 QT52.Q52.7.Q8762"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "77567775676687666876"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 110"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  7
+N  H  5
+N  D  6
+N  C  7
+S NT  7
+S  S  7
+S  H  5
+S  D  6
+S  C  7
+E NT  6
+E  S  6
+E  H  8
+E  D  7
+E  C  6
+W NT  6
+W  S  6
+W  H  8
+W  D  7
+W  C  6
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "32"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "N:63.K98.Q964.J932 AK85.AJ74.T753.A QJT2.T2.82.KQ876 974.Q653.AKJ.T54"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "542365423689b9789b97"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 650"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  5
+N  S  4
+N  H  2
+N  D  3
+N  C  6
+S NT  5
+S  S  4
+S  H  2
+S  D  3
+S  C  6
+E NT  8
+E  S  9
+E  H 11
+E  D  9
+E  C  7
+W NT  8
+W  S  9
+W  H 11
+W  D  9
+W  C  7
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "33"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:T9.Q98.AKT8.QJ76 AQ742.J7.Q953.98 J63.K652.J2.AKT3 K85.AT43.764.542"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "76879768796756467564"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 110"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  6
+N  H  8
+N  D  7
+N  C  9
+S NT  7
+S  S  6
+S  H  8
+S  D  7
+S  C  9
+E NT  6
+E  S  7
+E  H  5
+E  D  6
+E  C  4
+W NT  6
+W  S  7
+W  H  5
+W  D  6
+W  C  4
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "34"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "N:QT.A82.KJ965.865 K74.KJ964.3.AJ93 A6.T75.QT742.KT2 J98532.Q3.A8.Q74"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "74485744856995859958"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "EW 140"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  4
+N  H  4
+N  D  8
+N  C  5
+S NT  7
+S  S  4
+S  H  4
+S  D  8
+S  C  5
+E NT  6
+E  S  9
+E  H  9
+E  D  5
+E  C  8
+W NT  5
+W  S  9
+W  H  9
+W  D  5
+W  C  8
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "35"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "N:853.T2.Q864.A543 6.J97543.AJ.KT92 AKT72.A.K732.Q86 QJ94.KQ86.T95.J7"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "69498694986494564935"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 140"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  6
+N  S  9
+N  H  4
+N  D  9
+N  C  8
+S NT  6
+S  S  9
+S  H  4
+S  D  9
+S  C  8
+E NT  6
+E  S  4
+E  H  9
+E  D  4
+E  C  5
+W NT  6
+W  S  4
+W  H  9
+W  D  3
+W  C  5
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "36"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "N:AQ9732.J.J642.J7 KJ654.98.AKQT7.Q T8.AKQT654..K984 .732.9853.AT6532"]
+[Scoring ""]
+[Declarer ""]
+[Contract ""]
+[Result ""]
+[BCFlags "1f"]
+[DoubleDummyTricks "78936789365539755397"]
+[Generator "Big Deal version 1.2"]
+[OptimumScore "NS 140"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  8
+N  H  9
+N  D  3
+N  C  6
+S NT  7
+S  S  8
+S  H  9
+S  D  3
+S  C  6
+E NT  5
+E  S  5
+E  H  3
+E  D  9
+E  C  7
+W NT  5
+W  S  5
+W  H  3
+W  D  9
+W  C  7
