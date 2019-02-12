@@ -1,7 +1,11 @@
 #/usr/bin/python3
 
-import numpy as np 
-from Card import Card
+import numpy as np
+try:
+    from utils.Card import Card
+except:
+    from Card import Card
+
 from os import listdir
 from os.path import join
 import datetime
@@ -62,9 +66,26 @@ def date_from_fname(fname):
 
 
 def get_all_files(file_root=file_root, tod="Afternoon"):
-    files = listdir(join(file_root, tod))
+    if type(tod) == str:
+        files = listdir(join(file_root, tod))
+        return {date_from_fname(fname):
+                    get_deals_from_file(join(file_root, tod, fname))
+                for fname in files
+                if fname.endswith('.pbn')}
 
-    return {date_from_fname(fname):
-            get_deals_from_file(join(file_root, tod, fname))
-            for fname in files
-            if fname.endswith('.pbn')}
+    elif type(tod) == list:
+        result = dict()
+        for session in tod:
+            if session == "Morning":
+                hour = 8
+            elif session == "Afternoon":
+                hour = 13
+            else:
+                hour = 18
+            files = listdir(join(file_root, session))
+
+            result.update( {date_from_fname(fname).replace(hour=hour):
+                    get_deals_from_file(join(file_root, session, fname))
+                    for fname in files
+                    if fname.endswith('.pbn')} )
+        return result
