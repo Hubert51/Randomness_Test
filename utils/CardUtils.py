@@ -89,30 +89,35 @@ def get_points(hand):
 
 def get_features(deal): 
     features = np.zeros(num_features, dtype=np.float)
-    for hand in np.reshape(deal, (4,13)):
-        dist = get_dist(hand)
+    hand = np.reshape(deal, (4,13))[0]
+#     for hand in np.reshape(deal, (4,13)):
+    dist = get_dist(hand)
 
-        longest = dist[0]
-        features[fdict['ls'+str(longest)]]+=1
+    longest = dist[0]
+    features[fdict['ls'+str(longest)]]+=1
 
-        if longest == 6 and dist[1] == 5:
-            features[fdict['6-5']] += 1
+    if longest == 6 and dist[1] == 5:
+        features[fdict['6-5']] += 1
 
-        if longest == 6 and dist[1] == 6:
-            features[fdict['6-6']] += 1
+    if longest == 6 and dist[1] == 6:
+        features[fdict['6-6']] += 1
 
-        shortest = dist[-1]
-        features[fdict['ss'+str(shortest)]]+=1
+    shortest = dist[-1]
+    features[fdict['ss'+str(shortest)]]+=1
 
-        points = get_points(hand)
-        if points < 8: 
-            features[fdict['p<8']] += 1
-        elif points < 14:
-            features[fdict['p8-13']] += 1
-        elif points < 19:
-            features[fdict['p14-18']] += 1
-        else:
-            features[fdict['p19+']] += 1
+    points = get_points(hand)
+#     print(hand)
+#     print(points)
+    if points < 8: 
+        features[fdict['p<8']] += 1
+    elif points < 14:
+        features[fdict['p8-13']] += 1
+    elif points < 19:
+        features[fdict['p14-18']] += 1
+    else:
+        features[fdict['p19+']] += 1
+#     print(features)
+#     print(hand)
 
-    return features / 4
+    return features 
 
