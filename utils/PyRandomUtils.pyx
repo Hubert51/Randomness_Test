@@ -3,7 +3,7 @@ from libc.stdint cimport uint32_t, uint64_t, UINT32_MAX
 import numpy as np
 cimport numpy as np
 import random
-
+from collections import Collection
 
 
 cdef class PRNG(object):
@@ -16,6 +16,7 @@ cdef class PRNG(object):
 
     def randint(self, lo, hi):
         """random int in [lo, hi)"""
+        cdef float r
         r = self.rand() #idk the best way
         while r==1:
             r = self.rand()
@@ -95,10 +96,58 @@ ctypedef np.int8_t CARD_T
 
 ctypedef np.npy_intp IDX_t
 
-
 def shuffle(PRNG gen, np.ndarray[CARD_T, ndim=1] arr):
     cdef IDX_t i, j, n=len(arr)
     for i in range(0, n-2):
         j = gen.randint(i, n)
         arr[i], arr[j] = arr[j], arr[i]
 
+cdef np.ndarray DECK = np.array(range(1,53), dtype=np.int8)
+
+cpdef deck(gen=None):
+    tmp = np.array(DECK)
+    if gen:
+        shuffle(gen, tmp)
+    return tmp
+
+#Halton sequence
+def next_prime():
+    def is_prime(int num):
+        "Checks if num is a prime value"
+        for i in range(2,int(num**0.5)+1):
+            if(num % i)==0: return False
+        return True
+
+    cdef int prime = 3
+    while 1:
+        if is_prime(prime):
+            yield prime
+        prime += 2
+
+def vdc(int n, int base=2):
+    cdef double vdc = 0
+    cdef int denom = 1
+    while n:
+        denom *= base
+        n, remainder = divmod(n, base)
+        vdc += remainder/float(denom)
+    return vdc
+
+def halton_sequence(size, dim):
+    seq = []
+    primeGen = next_prime()
+    next(primeGen)
+    for d in range(dim):
+        base = next(primeGen)
+        seq.append([vdc(i, base) for i in range(size)])
+    return seq
+
+class HaltonGen(PRNG):
+
+    def __init__(self, base=2, count=0):
+        self.base = base
+        self.count = count
+
+    def rand(self):
+        self.count += 1
+        return vdc(self.count, self.base)

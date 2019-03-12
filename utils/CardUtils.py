@@ -51,8 +51,8 @@ theoretical_probabilities = np.array([
     0.00072,
     0.285846,
     0.801244- 0.285846,
-    0.985549 - 0.801244,
-    1 - 0.985549
+    0.975187 - 0.801244,
+    1 - 0.975187
     ])
 
 
@@ -86,6 +86,9 @@ def print_all_dist(deal):
 def get_points(hand):
     return sum((max(0, (card-1) % 13 - 8) for card in hand))
 
+def print_features():
+    for i in range(len(feature_string)):
+        print("{:3d}: {:8}|{:0.13f}".format(i, feature_string[i], theoretical_probabilities[i]))
 
 def get_features(deal): 
     features = np.zeros(num_features, dtype=np.float)
