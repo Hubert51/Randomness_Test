@@ -58,7 +58,7 @@ cdef class LCG(PRNG):
         return (<float> self.randi()) / self.mod
 
 cpdef LCG LCG_RANDU(seed):
-    return LCG(1<<31, 65539, seed, c=0)
+    return LCG(1<<31, 65539, 0, seed)
 
 cdef class MiddleSquare_WeylSequence(PRNG):
     """Middle Square generator using the Weyl sequence
