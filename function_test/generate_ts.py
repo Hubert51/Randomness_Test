@@ -5,14 +5,15 @@ import numpy as np
 
 
 if __name__ == '__main__':
-    models = [["Sobol"], ["MT"], ["real game"], ["hardware"], ["bigdeal", 3000000]]
-    for i in range(10, 30):
+    models = [ ["MT"], ["hardware"] ]
+    # models = []
+    for i in range(10, 30, 5):
         models.append(["LCG", i])
 
-    batch_size = 36
-    batch_num = 800
+    batch_size = 1
+    batch_num = int(10 ** 7)
 
     for model in models:
         result = toolbox.generate_ts(batch_size, batch_num, model)
-        file_name = ''.join(str(x) for x in model)
+        file_name = ''.join(str(x) for x in model) + ".txt"
         np.savetxt(file_name, result)

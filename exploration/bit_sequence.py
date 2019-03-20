@@ -9,15 +9,8 @@ Attention: the bigdeal file does not upload since size limits. If you want test,
 Generate big_deal_number set of bridge.
 """
 
-
-# In[1]:
-
-
 import sys, os
 sys.path.append(os.path.dirname(os.getcwd()))
-
-
-# In[2]:
 
 
 import importlib
@@ -37,10 +30,6 @@ from matplotlib.ticker import FuncFormatter
 import random
 
 
-
-# In[3]:
-
-
 # Global variable
 '''
 this is the data size for professor's data, which is real game
@@ -56,12 +45,7 @@ num_batches = 2500
 big_deal_number = 1000000
 file_name = "{}.pbn".format(big_deal_number)
 
-
-
 DECK = np.array(range(1,53), dtype=np.int8)
-
-
-# In[4]:
 
 
 def generate_bit_sequence(ts, tp):
@@ -129,8 +113,6 @@ def feature_compare(RS, RS_name, tp ):
     return result
 
 
-# In[5]:
-
 
 def make_graphs_hist(feature_result, RS_name):
     dim = feature_result.shape[0]
@@ -160,11 +142,6 @@ if __name__ == '__main__':
     tp = CardUtils.theoretical_probabilities
     RS = []
     RS_name = []
-
-
-
-    # In[7]:
-
 
     # bad PRNG
     ts_bads = []

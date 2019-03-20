@@ -18,14 +18,13 @@ feature_string = [
     'ls9',
     'ls10',
     'ls11',
-    'ls12',
-    'ls13',
     'ss0',
     'ss1',
     'ss2',
     'ss3',
     '6-5',
     '6-6',
+    '7-6',
     'p<8',
     'p8-13',
     'p14-18',
@@ -41,14 +40,13 @@ theoretical_probabilities = np.array([
     0.00037,
     0.000017,
     0.0000003,
-    0.000000003,
-    0.000000000006,
     0.0512,
     0.3055,
     0.5380,
     0.1054,
     0.00705+0.00651,
     0.00072,
+    0.000056,
     0.285846,
     0.801244- 0.285846,
     0.985549 - 0.801244,
@@ -59,6 +57,10 @@ theoretical_probabilities = np.array([
 fdict = {item : index for index, item in enumerate(feature_string) }
 
 num_features = len(feature_string)
+
+
+def get_num_features():
+    return num_features
 
 
 def val_card(card):
@@ -91,9 +93,10 @@ def get_features(deal):
     features = np.zeros(num_features, dtype=np.float)
     for hand in np.reshape(deal, (4,13)):
         dist = get_dist(hand)
-
         longest = dist[0]
-        features[fdict['ls'+str(longest)]]+=1
+
+        if ( longest < 12 ) :
+            features[fdict['ls'+str(longest)]]+=1
 
         if longest == 6 and dist[1] == 5:
             features[fdict['6-5']] += 1
@@ -101,11 +104,14 @@ def get_features(deal):
         if longest == 6 and dist[1] == 6:
             features[fdict['6-6']] += 1
 
+        if longest == 7 and dist[1] == 6:
+            features[fdict['7-6']] += 1
+
         shortest = dist[-1]
         features[fdict['ss'+str(shortest)]]+=1
 
         points = get_points(hand)
-        if points < 8: 
+        if points < 8:
             features[fdict['p<8']] += 1
         elif points < 14:
             features[fdict['p8-13']] += 1
@@ -115,4 +121,6 @@ def get_features(deal):
             features[fdict['p19+']] += 1
 
     return features / 4
+
+
 

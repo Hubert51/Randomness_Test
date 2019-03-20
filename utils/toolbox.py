@@ -1,5 +1,7 @@
 import sys, os
 sys.path.append(os.path.dirname(os.getcwd()))
+import pyximport
+pyximport.install()
 
 
 import importlib
@@ -12,7 +14,7 @@ import matplotlib.pyplot as plt
 import utils.CardUtils as cu
 import utils.CardUtils as CardUtils
 import datetime
-import PyRandomUtils as pru
+import utils.PyRandomUtils as pru
 import utils.sobol_seq as ss
 from rdrand import RdRandom
 from matplotlib.ticker import FuncFormatter
@@ -41,7 +43,7 @@ def make_ts(gen, batch_size, num_batches):
     if ( type(gen) == RdRandom ):
         ts = []
         for j in range(num_batches):
-            temp = np.zeros(20)
+            temp = np.zeros( cu.get_num_features() )
             for i in range(batch_size):
                 one_deal = DECK.copy()
                 gen.shuffle( one_deal )
@@ -126,3 +128,5 @@ def generate_ts( batch_size, num_of_batch, para ):
         ts = np.array(ts_bigdeal)
 
     return ts
+
+
