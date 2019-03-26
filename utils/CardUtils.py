@@ -3,6 +3,7 @@ import numpy as np
 # cimport numpy as np
 
 # ctypedef np.int8_t CARD_T
+
 CARD = np.int8
 # ctypedef np.npy_intp IDX_t
 
@@ -26,6 +27,8 @@ feature_string = [
     'ss3',
     '6-5',
     '6-6',
+    '7-5',
+    '7-6',
     'p<8',
     'p8-13',
     'p14-18',
@@ -49,12 +52,13 @@ theoretical_probabilities = np.array([
     0.1054,
     0.00705+0.00651,
     0.00072,
+    0.00109,
+    0.000056,
     0.285846,
     0.801244- 0.285846,
     0.975187 - 0.801244,
     1 - 0.975187
     ])
-
 
 fdict = {item : index for index, item in enumerate(feature_string) }
 
@@ -96,13 +100,23 @@ def get_features(deal):
         dist = get_dist(hand)
 
         longest = dist[0]
+        # if longest<12:
         features[fdict['ls'+str(longest)]]+=1
+
 
         if longest == 6 and dist[1] == 5:
             features[fdict['6-5']] += 1
 
+
         if longest == 6 and dist[1] == 6:
             features[fdict['6-6']] += 1
+
+        if longest == 7 and dist[1] == 5:
+            features[fdict['7-5']] += 1
+
+        if longest == 7 and dist[1] == 6:
+            features[fdict['7-6']] += 1
+
 
         shortest = dist[-1]
         features[fdict['ss'+str(shortest)]]+=1

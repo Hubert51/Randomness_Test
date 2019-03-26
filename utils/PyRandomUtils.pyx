@@ -1,9 +1,13 @@
 
-from libc.stdint cimport uint32_t, uint64_t, UINT32_MAX
 import numpy as np
-cimport numpy as np
 import random
-from collections import Collection
+import CardUtils as cu
+import matplotlib.pyplot as plt
+
+
+
+from libc.stdint cimport uint32_t, uint64_t, UINT32_MAX
+cimport numpy as np
 
 
 cdef class PRNG(object):
@@ -16,11 +20,11 @@ cdef class PRNG(object):
 
     def randint(self, lo, hi):
         """random int in [lo, hi)"""
-        cdef float r
-        r = self.rand() #idk the best way
-        while r==1:
-            r = self.rand()
-        return int(self.rand() * (hi-lo) + lo)
+        cdef int r
+        r = int(self.rand() * (hi-lo) + lo) #idk the best way
+        while r==hi:
+            r = int(self.rand() * (hi-lo) + lo)
+        return r
 
 cdef class PyRandGen(PRNG):
 
@@ -35,12 +39,12 @@ cdef class PyRandGen(PRNG):
 
 
 cdef class LCG(PRNG):
-    cdef readonly uint32_t state
-    cdef uint32_t mod
-    cdef uint32_t a
-    cdef uint32_t c
+    cdef readonly uint64_t state
+    cdef uint64_t mod
+    cdef uint64_t a
+    cdef uint64_t c
 
-    def __init__(self, uint32_t mod, uint32_t a, uint32_t c,uint32_t seed):
+    def __init__(self, uint64_t mod, uint64_t a, uint64_t c,uint64_t seed):
         if seed%2==0:
             raise ValueError("Seed must be odd")
         self.state=seed
@@ -84,15 +88,12 @@ cdef class MiddleSquare_WeylSequence(PRNG):
         return (<float>self.randi())/UINT32_MAX
 
 
-# We now need to fix a datatype for our arrays. I've used the variable
-# DTYPE for this, which is assigned to the usual NumPy runtime
-# type info object.
-CARD = np.int8
+CARD = np.int32
 
 # "ctypedef" assigns a corresponding compile-time type to DTYPE_t. For
 # every type in the numpy module there's a corresponding compile-time
 # type with a _t-suffix.
-ctypedef np.int8_t CARD_T
+ctypedef np.int32_t CARD_T
 
 ctypedef np.npy_intp IDX_t
 
@@ -102,7 +103,7 @@ def shuffle(PRNG gen, np.ndarray[CARD_T, ndim=1] arr):
         j = gen.randint(i, n)
         arr[i], arr[j] = arr[j], arr[i]
 
-cdef np.ndarray DECK = np.array(range(1,53), dtype=np.int8)
+cdef np.ndarray DECK = np.array(range(1,53), dtype=CARD)
 
 cpdef deck(gen=None):
     tmp = np.array(DECK)
@@ -151,3 +152,39 @@ class HaltonGen(PRNG):
     def rand(self):
         self.count += 1
         return vdc(self.count, self.base)
+
+    def seed(self, n):
+        # skips the first n results
+        self.count = n
+
+
+#Common used functions
+def make_ts(gen, batches=1000, batch_size=36):
+    ts = [sum((cu.get_features(deck(gen)) for i in range(batch_size))) / batch_size
+           for j in range(batches)]
+    return np.array(ts).T
+
+def make_ts_no_batch(PRNG gen, int decks=5):
+    cdef np.ndarray ret = np.zeros((decks, len(cu.theoretical_probabilities)), dtype=float)
+    for i in range(decks):
+        ret[i] = np.array(cu.get_features(deck(gen)))
+    return ret.T
+
+def make_graphs(ts):
+    dim = ts.shape[0]
+    fig, ax = plt.subplots(dim,1, figsize = (15, 100))
+
+    for i in range(dim):
+        plt.subplot(dim,1,i+1)
+        plt.title(cu.feature_string[i],fontsize=16)
+        plt.plot(ts[i] - cu.theoretical_probabilities[i])
+
+def print_means(ts):
+    means = np.apply_along_axis(np.mean, 1, ts)
+    tp = cu.theoretical_probabilities
+    print("{:22}{:^22}{:^22}{:^22}".format("Feature", "p", "p_hat", "p-p_hat"))
+    for i in range(len(cu.feature_string)):
+        print("{:20} {: 20.18f} {: 20.18f} {: 20.18f}".format(cu.feature_string[i],
+                                           cu.theoretical_probabilities[i],
+                                           means[i],
+                                           cu.theoretical_probabilities[i]-means[i]))
