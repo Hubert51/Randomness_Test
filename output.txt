@@ -1,0 +1,114 @@
+The model is MT
+Feature  0: S_avg is 3.62e+02, index of S_avg is  4875305, S_max is 7.56e+02
+Feature  1: S_avg is 3.32e+02, index of S_avg is  1589368, S_max is 5.97e+02
+Feature  2: S_avg is 1.75e+02, index of S_avg is  5299101, S_max is 4.98e+02
+Feature  3: S_avg is     52.5, index of S_avg is  4490682, S_max is 1.61e+02
+Feature  4: S_avg is 1.12e+02, index of S_avg is  4711000, S_max is 2.03e+02
+Feature  5: S_avg is     10.6, index of S_avg is  1804481, S_max is     22.7
+Feature  6: S_avg is     2.32, index of S_avg is  4906989, S_max is     5.92
+Feature  7: S_avg is    0.451, index of S_avg is  5002084, S_max is    0.749
+Feature  8: S_avg is 6.38e+02, index of S_avg is  5203444, S_max is  1.1e+03
+Feature  9: S_avg is 2.29e+02, index of S_avg is  5153045, S_max is 4.88e+02
+Feature 10: S_avg is 5.74e+02, index of S_avg is  4468474, S_max is 1.02e+03
+Feature 11: S_avg is  1.1e+02, index of S_avg is  1393445, S_max is 3.43e+02
+Feature 12: S_avg is     32.2, index of S_avg is  2095179, S_max is     92.6
+Feature 13: S_avg is     15.9, index of S_avg is  5389470, S_max is     44.1
+Feature 14: S_avg is      4.3, index of S_avg is  1868477, S_max is     9.63
+Feature 15: S_avg is  1.2e+02, index of S_avg is  2138425, S_max is 3.57e+02
+Feature 16: S_avg is     95.3, index of S_avg is  2099388, S_max is 3.28e+02
+Feature 17: S_avg is  2.8e+04, index of S_avg is  5404737, S_max is 5.61e+04
+Feature 18: S_avg is 2.79e+04, index of S_avg is  5404810, S_max is  5.6e+04
+
+The model is Halton(window size 500)
+Start loading data from file
+End loading data from file, spend 3.2548489570617676 time
+Feature  0: S_avg is 1.16e+04, index of S_avg is    99999, S_max is 2.33e+04
+Feature  1: S_avg is 9.22e+03, index of S_avg is    99999, S_max is 1.84e+04
+Feature  2: S_avg is 3.26e+03, index of S_avg is    99999, S_max is 6.52e+03
+Feature  3: S_avg is 4.22e+03, index of S_avg is    99997, S_max is 8.43e+03
+Feature  4: S_avg is  7.9e+02, index of S_avg is    99996, S_max is 1.58e+03
+Feature  5: S_avg is 6.84e+03, index of S_avg is    99998, S_max is 1.37e+04
+Feature  6: S_avg is 4.36e+03, index of S_avg is    99997, S_max is 8.72e+03
+Feature  7: S_avg is 1.39e+03, index of S_avg is    99999, S_max is 2.78e+03
+Feature  8: S_avg is 3.09e+04, index of S_avg is    99999, S_max is 6.18e+04
+Feature  9: S_avg is 6.82e+03, index of S_avg is    99999, S_max is 1.36e+04
+Feature 10: S_avg is    2e+04, index of S_avg is    99999, S_max is    4e+04
+Feature 11: S_avg is  4.1e+03, index of S_avg is    99999, S_max is  8.2e+03
+Feature 12: S_avg is 6.08e+03, index of S_avg is    99998, S_max is 1.22e+04
+Feature 13: S_avg is 8.11e+02, index of S_avg is    99999, S_max is 1.62e+03
+Feature 14: S_avg is      2.8, index of S_avg is    99999, S_max is      5.6
+Feature 15: S_avg is  3.6e+02, index of S_avg is    99999, S_max is 7.21e+02
+Feature 16: S_avg is 9.68e+02, index of S_avg is    99990, S_max is 1.94e+03
+Feature 17: S_avg is 1.58e+03, index of S_avg is    99990, S_max is 3.17e+03
+Feature 18: S_avg is 2.56e+02, index of S_avg is    99999, S_max is 5.12e+02
+
+
+The model is LCG10
+Start loading data from file
+End loading data from file, spend 330.3291368484497 time
+Feature  0: S_avg is 1.57e+04, index of S_avg is  9999990, S_max is 3.14e+04
+Feature  1: S_avg is 2.25e+05, index of S_avg is  9999999, S_max is  4.5e+05
+Feature  2: S_avg is  1.1e+05, index of S_avg is  9999992, S_max is  2.2e+05
+Feature  3: S_avg is 1.16e+05, index of S_avg is  9999998, S_max is 2.33e+05
+Feature  4: S_avg is 1.56e+04, index of S_avg is  9999998, S_max is 3.11e+04
+Feature  5: S_avg is 1.85e+03, index of S_avg is  9999999, S_max is  3.7e+03
+Feature  6: S_avg is     85.0, index of S_avg is  9999999, S_max is  1.7e+02
+Feature  7: S_avg is      1.5, index of S_avg is  9999999, S_max is      3.0
+Feature  8: S_avg is 1.74e+04, index of S_avg is  9999941, S_max is 3.49e+04
+Feature  9: S_avg is 9.36e+04, index of S_avg is  9999993, S_max is 1.87e+05
+Feature 10: S_avg is 2.48e+04, index of S_avg is  9999960, S_max is 4.97e+04
+Feature 11: S_avg is 1.36e+05, index of S_avg is  9999993, S_max is 2.73e+05
+Feature 12: S_avg is 9.21e+03, index of S_avg is  9999988, S_max is 1.84e+04
+Feature 13: S_avg is 1.59e+04, index of S_avg is  9999998, S_max is 3.19e+04
+Feature 14: S_avg is  2.8e+02, index of S_avg is  9999999, S_max is  5.6e+02
+Feature 15: S_avg is 3.45e+03, index of S_avg is  9999995, S_max is  6.9e+03
+Feature 16: S_avg is 1.14e+03, index of S_avg is  9999945, S_max is 2.27e+03
+Feature 17: S_avg is 8.17e+04, index of S_avg is  9999945, S_max is 1.63e+05
+Feature 18: S_avg is  8.4e+04, index of S_avg is  9999998, S_max is 1.68e+05
+
+
+The model is hardware
+Start loading data from file
+End loading data from file, spend 340.82456946372986 time
+Feature  0: S_avg is 3.07e+02, index of S_avg is  6353810, S_max is 7.91e+02
+Feature  1: S_avg is 3.95e+02, index of S_avg is  4592069, S_max is 1.01e+03
+Feature  2: S_avg is 3.62e+02, index of S_avg is  9286106, S_max is 9.93e+02
+Feature  3: S_avg is 1.16e+02, index of S_avg is  2705102, S_max is 2.84e+02
+Feature  4: S_avg is 2.17e+02, index of S_avg is  9592022, S_max is 4.48e+02
+Feature  5: S_avg is     22.8, index of S_avg is  7122960, S_max is     41.2
+Feature  6: S_avg is     2.05, index of S_avg is  2884080, S_max is     5.72
+Feature  7: S_avg is    0.527, index of S_avg is  9183596, S_max is     1.74
+Feature  8: S_avg is 9.66e+02, index of S_avg is  9968295, S_max is 1.89e+03
+Feature  9: S_avg is 1.19e+03, index of S_avg is  8815176, S_max is 2.23e+03
+Feature 10: S_avg is 9.05e+02, index of S_avg is  8428867, S_max is 1.81e+03
+Feature 11: S_avg is 1.84e+02, index of S_avg is  8409499, S_max is 5.16e+02
+Feature 12: S_avg is     85.3, index of S_avg is  9625916, S_max is 3.14e+02
+Feature 13: S_avg is     58.7, index of S_avg is  9587540, S_max is 1.49e+02
+Feature 14: S_avg is     8.62, index of S_avg is  9262586, S_max is     22.5
+Feature 15: S_avg is 2.45e+02, index of S_avg is  4290846, S_max is 4.47e+02
+Feature 16: S_avg is 3.49e+02, index of S_avg is  9886233, S_max is 1.28e+03
+Feature 17: S_avg is 5.21e+04, index of S_avg is  9999989, S_max is 1.04e+05
+Feature 18: S_avg is 5.18e+04, index of S_avg is  9999985, S_max is 1.03e+05
+
+The model is LCG15
+Start loading data from file
+End loading data from file, spend 342.74080061912537 time
+Feature  0: S_avg is 7.25e+04, index of S_avg is  9999866, S_max is 1.45e+05
+Feature  1: S_avg is 4.74e+04, index of S_avg is  9999988, S_max is 9.48e+04
+Feature  2: S_avg is 1.97e+04, index of S_avg is  9999866, S_max is 3.93e+04
+Feature  3: S_avg is 5.38e+03, index of S_avg is  9999528, S_max is 1.08e+04
+Feature  4: S_avg is 3.06e+02, index of S_avg is  9998671, S_max is 6.14e+02
+Feature  5: S_avg is     19.0, index of S_avg is  9999281, S_max is     38.2
+Feature  6: S_avg is     85.0, index of S_avg is  9999999, S_max is  1.7e+02
+Feature  7: S_avg is      1.5, index of S_avg is  9999999, S_max is      3.0
+Feature  8: S_avg is 7.67e+03, index of S_avg is  9999866, S_max is 1.53e+04
+Feature  9: S_avg is 4.48e+04, index of S_avg is  9999703, S_max is 8.95e+04
+Feature 10: S_avg is 2.76e+04, index of S_avg is  9999631, S_max is 5.53e+04
+Feature 11: S_avg is 2.53e+04, index of S_avg is  9999868, S_max is 5.06e+04
+Feature 12: S_avg is 3.61e+03, index of S_avg is  9999825, S_max is 7.22e+03
+Feature 13: S_avg is  2.5e+03, index of S_avg is  9999721, S_max is 5.01e+03
+Feature 14: S_avg is  2.8e+02, index of S_avg is  9999999, S_max is  5.6e+02
+Feature 15: S_avg is 1.97e+04, index of S_avg is  9999270, S_max is 3.95e+04
+Feature 16: S_avg is 3.85e+04, index of S_avg is  9999340, S_max is 7.71e+04
+Feature 17: S_avg is 3.77e+04, index of S_avg is  9999866, S_max is 7.55e+04
+Feature 18: S_avg is 5.65e+04, index of S_avg is  9999931, S_max is 1.13e+05

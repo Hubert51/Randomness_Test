@@ -28,6 +28,7 @@ cdef class PRNG(object):
             r = int(self.rand() * (hi-lo) + lo)
         return r
 
+
 cdef class PyRandGen(PRNG):
 
     def __init__(self, seed=None):
@@ -114,6 +115,7 @@ cpdef deck_t deck(gen=None):
     if gen:
         shuffle(gen, tmp)
     return tmp
+
 
 #Halton sequence
 def next_prime():
