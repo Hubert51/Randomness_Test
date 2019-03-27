@@ -16,7 +16,7 @@ cdef class PRNG(object):
 
     def randint(self, lo, hi):
         """random int in [lo, hi)"""
-        r = self.rand() #idk the best way
+        r = int(self.rand() * (hi-lo) + lo) #idk the best way
         while r==1:
             r = self.rand()
         return int(self.rand() * (hi-lo) + lo)
@@ -101,4 +101,47 @@ def shuffle(PRNG gen, np.ndarray[CARD_T, ndim=1] arr):
     for i in range(0, n-2):
         j = gen.randint(i, n)
         arr[i], arr[j] = arr[j], arr[i]
+
+
+#Halton sequence
+def next_prime():
+    def is_prime(int num):
+        "Checks if num is a prime value"
+        for i in range(2,int(num**0.5)+1):
+            if(num % i)==0: return False
+        return True
+
+    cdef int prime = 3
+    while 1:
+        if is_prime(prime):
+            yield prime
+        prime += 2
+
+def vdc(int n, int base=2):
+    cdef double vdc = 0
+    cdef int denom = 1
+    while n:
+        denom *= base
+        n, remainder = divmod(n, base)
+        vdc += remainder/float(denom)
+    return vdc
+
+def halton_sequence(size, dim):
+    seq = []
+    primeGen = next_prime()
+    next(primeGen)
+    for d in range(dim):
+        base = next(primeGen)
+        seq.append([vdc(i, base) for i in range(size)])
+    return seq
+
+class HaltonGen(PRNG):
+
+    def __init__(self, base=13, count=0):
+        self.base = base
+        self.count = count
+
+    def rand(self):
+        self.count += 1
+        return vdc(self.count, self.base)
 
