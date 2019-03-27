@@ -8,7 +8,6 @@ from pdb import pm
 import utils.CardUtils as cu
 import numpy as np
 import matplotlib.pyplot as plt
-import utils.sobol_seq as ss
 # cimport numpy as np
 
 # ctypedef np.int8_t CARD_T
@@ -183,14 +182,6 @@ def print_means(ts):
                                            tp[i]-means[i]))
 
 
-
-class SobolGen(pru.PRNG):
-    def __init__(self, seed):
-        self.seed = seed
-
-    def rand(self):
-        r, self.seed = ss.i4_sobol(1, self.seed)
-        return r
 
 if __name__ == '__main__':
     # bad prng

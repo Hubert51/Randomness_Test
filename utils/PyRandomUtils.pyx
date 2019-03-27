@@ -1,10 +1,12 @@
-
+#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
 import numpy as np
 import random
-import CardUtils as cu
+import utils
+import utils.CardUtils as cu
+from multiprocessing import Pool, Queue, Lock, Process
+
+from   utils.CardUtils cimport get_features, card_t, deck_t
 import matplotlib.pyplot as plt
-
-
 
 from libc.stdint cimport uint32_t, uint64_t, UINT32_MAX
 cimport numpy as np
@@ -88,16 +90,18 @@ cdef class MiddleSquare_WeylSequence(PRNG):
         return (<float>self.randi())/UINT32_MAX
 
 
-CARD = np.int32
+CARD = np.int8
 
 # "ctypedef" assigns a corresponding compile-time type to DTYPE_t. For
 # every type in the numpy module there's a corresponding compile-time
 # type with a _t-suffix.
-ctypedef np.int32_t CARD_T
-
+# ctypedef np.int32_t card_t
+#
 ctypedef np.npy_intp IDX_t
+#
+# ctypedef CARD_T[:] deck_t
 
-def shuffle(PRNG gen, np.ndarray[CARD_T, ndim=1] arr):
+def shuffle(PRNG gen, np.ndarray[card_t, ndim=1] arr):
     cdef IDX_t i, j, n=len(arr)
     for i in range(0, n-2):
         j = gen.randint(i, n)
@@ -105,8 +109,8 @@ def shuffle(PRNG gen, np.ndarray[CARD_T, ndim=1] arr):
 
 cdef np.ndarray DECK = np.array(range(1,53), dtype=CARD)
 
-cpdef deck(gen=None):
-    tmp = np.array(DECK)
+cpdef deck_t deck(gen=None):
+    tmp = np.array(DECK, dtype=CARD)
     if gen:
         shuffle(gen, tmp)
     return tmp
@@ -160,15 +164,36 @@ class HaltonGen(PRNG):
 
 #Common used functions
 def make_ts(gen, batches=1000, batch_size=36):
-    ts = [sum((cu.get_features(deck(gen)) for i in range(batch_size))) / batch_size
+    ts = [sum((get_features(deck(gen)) for i in range(batch_size))) / batch_size
            for j in range(batches)]
     return np.array(ts).T
 
 def make_ts_no_batch(PRNG gen, int decks=5):
+    cdef Py_ssize_t i
     cdef np.ndarray ret = np.zeros((decks, len(cu.theoretical_probabilities)), dtype=float)
     for i in range(decks):
         ret[i] = np.array(cu.get_features(deck(gen)))
     return ret.T
+
+def f(deck):
+    return list(cu.get_features(deck))
+
+def make_ts_no_batch_mp(PRNG gen, int n=5, int cores=4):
+    cdef Py_ssize_t i
+    cdef np.ndarray ret = np.zeros((n, len(cu.theoretical_probabilities)), dtype=float)
+
+    decks = np.array([deck(gen) for i in range(n)])
+
+
+    with Pool(cores) as pool:
+        ret_ = pool.map(f, decks)
+    # ret_ = map(f, decks)
+
+    for i, e in enumerate(ret_):
+        ret[i] = e
+
+    return ret.T
+
 
 def make_graphs(ts):
     dim = ts.shape[0]
