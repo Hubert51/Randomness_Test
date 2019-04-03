@@ -18,6 +18,7 @@ from matplotlib import style
 import utils.CardUtils as cu
 import os, sys
 
+
 style.use('fivethirtyeight')
 
 
@@ -48,6 +49,11 @@ def draw_histgram(diff, window_size, bin_size):
 
 
 if __name__ == '__main__':
+    x = 1
+    while (True):
+        x += 1
+        print(x)
+        time.sleep(1)
 
     """
     Current task is to check whether the random sequence is agreeable with the expected value
