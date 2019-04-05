@@ -11,7 +11,7 @@ from os.path import join
 import datetime
 import re
 
-file_root = '../hand records'
+FILE_ROOT = '../hand records'
 
 face_to_val = {str(x + 2): x + 1 for x in range(8)}
 face_to_val.update({'T': 9, 'J': 10, 'Q': 11, 'K': 12, 'A': 13})
@@ -65,7 +65,7 @@ def date_from_fname(fname):
     return ret
 
 
-def get_all_files(file_root=file_root, tod="Afternoon"):
+def get_all_files(file_root=FILE_ROOT, tod="Afternoon"):
     if type(tod) == str:
         files = listdir(join(file_root, tod))
         return {date_from_fname(fname):
