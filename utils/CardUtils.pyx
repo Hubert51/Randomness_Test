@@ -12,6 +12,7 @@ cimport cython
 # ctypedef np.int8_t card_t
 ctypedef np.npy_intp IDX_t
 card = np.int8
+result = np.float32
 
 suits = "SHDC"
 names = "23456789TJQKA"
@@ -124,11 +125,19 @@ def print_features():
     for i in range(len(feature_string)):
         print("{:3d}: {:8}|{:0.13f}".format(i, feature_string[i], theoretical_probabilities[i]))
 
-cpdef np.float64_t[:] get_features(card_t[:] deal):
-    cdef np.ndarray[np.float64_t] features = np.zeros(num_features, dtype=np.float64)
+cdef inline void insert_feature(result_t[:] features, str fname):
+    cdef IDX_t idx
+    idx = fdict[fname]
+    features[idx] += 0.25
+
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cpdef result_t[:] get_features(card_t[:] deal):
+    cdef result_t[:] features = np.zeros(num_features, dtype=result)
     cdef card_t[:] hand
     cdef np.int8_t[:] dist
-    cdef IDX_t i
+    cdef IDX_t i, idx
     cdef long longest, shortest, points
 
 
@@ -142,28 +151,29 @@ cpdef np.float64_t[:] get_features(card_t[:] deal):
         points = get_points(hand)
         shortest = dist[3]
 
-        features[fdict['ls'+str(longest)]]+=0.25
-        features[fdict['ss'+str(shortest)]]+=0.25
-
+        insert_feature(features, 'ls'+str(longest))
+        insert_feature(features, 'ss'+str(shortest))
 
         if longest == 6 and dist[1] == 5:
-            features[fdict['6-5']] += 0.25
+            insert_feature(features, '6-5')
         if longest == 6 and dist[1] == 6:
-            features[fdict['6-6']] += 0.25
+            insert_feature(features, '6-6')
         if longest == 7 and dist[1] == 5:
-            features[fdict['7-5']] += 0.25
+            insert_feature(features, '7-5')
         if longest == 7 and dist[1] == 6:
-            features[fdict['7-6']] += 0.25
+            insert_feature(features, '7-6')
 
 
         if points < 8:
-            features[fdict['p<8']] += 0.25
+            insert_feature(features, 'p<8')
+
         elif points < 14:
-            features[fdict['p8-13']] += 0.25
+            insert_feature(features, 'p8-13')
         elif points < 19:
-            features[fdict['p14-18']] += 0.25
+            insert_feature(features, 'p14-18')
         else:
-            features[fdict['p19+']] += 0.25
+            insert_feature(features, 'p19+')
+
 
     return features
 

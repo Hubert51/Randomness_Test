@@ -3,14 +3,21 @@ import numpy as np
 import random
 import utils
 import utils.CardUtils as cu
+from utils.CardUtils import card, result
 from multiprocessing import Pool, Queue, Lock, Process
 
-from   utils.CardUtils cimport get_features, card_t, deck_t
+from   utils.CardUtils cimport get_features, card_t, deck_t, result_t, timeseries_t
 import matplotlib.pyplot as plt
 
 from libc.stdint cimport uint32_t, uint64_t, UINT32_MAX
 cimport numpy as np
 
+import cython
+cimport cython
+
+
+
+ctypedef np.npy_intp IDX_t
 
 cdef class PRNG(object):
 
@@ -90,16 +97,6 @@ cdef class MiddleSquare_WeylSequence(PRNG):
         return (<float>self.randi())/UINT32_MAX
 
 
-CARD = np.int8
-
-# "ctypedef" assigns a corresponding compile-time type to DTYPE_t. For
-# every type in the numpy module there's a corresponding compile-time
-# type with a _t-suffix.
-# ctypedef np.int32_t card_t
-#
-ctypedef np.npy_intp IDX_t
-#
-# ctypedef CARD_T[:] deck_t
 
 def shuffle(PRNG gen, np.ndarray[card_t, ndim=1] arr):
     cdef IDX_t i, j, n=len(arr)
@@ -107,10 +104,10 @@ def shuffle(PRNG gen, np.ndarray[card_t, ndim=1] arr):
         j = gen.randint(i, n)
         arr[i], arr[j] = arr[j], arr[i]
 
-cdef np.ndarray DECK = np.array(range(1,53), dtype=CARD)
+cdef np.ndarray DECK = np.array(range(1,53), dtype=card)
 
 cpdef deck_t deck(gen=None):
-    tmp = np.array(DECK, dtype=CARD)
+    tmp = np.array(DECK, dtype=card)
     if gen:
         shuffle(gen, tmp)
     return tmp
@@ -129,7 +126,7 @@ def next_prime():
             yield prime
         prime += 2
 
-def vdc(int n, int base=2):
+cpdef vdc(size_t n, size_t base=2):
     cdef double vdc = 0
     cdef int denom = 1
     while n:
@@ -138,28 +135,88 @@ def vdc(int n, int base=2):
         vdc += remainder/float(denom)
     return vdc
 
-def halton_sequence(size, dim):
-    seq = []
-    primeGen = next_prime()
-    next(primeGen)
-    for d in range(dim):
-        base = next(primeGen)
-        seq.append([vdc(i, base) for i in range(size)])
-    return seq
+def primesfrom2to(n):
+    """ Input n>=6, Returns a array of primes, 2 <= p < n """
+    sieve = np.ones(n//3 + (n%6==2), dtype=np.bool)
+    for i in range(1,int(n**0.5)//3+1):
+        if sieve[i]:
+            k=3*i+1|1
+            sieve[       k*k//3     ::2*k] = False
+            sieve[k*(k-2*(i&1)+4)//3::2*k] = False
+    return np.r_[2,3,((3*np.nonzero(sieve)[0][1:]+1)|1)]
 
-class HaltonGen(PRNG):
+cdef long maxprime = 1000
+cdef long[:] primes = primesfrom2to(maxprime)
+
+
+cdef float[:,:] halton_sequence(size_t size, size_t dim, size_t start=0):
+
+    cdef float[:,:] seq
+    cdef size_t base, d, i, j
+
+    if len(primes) < dim:
+        global primes, maxprime
+        maxprime *= 2
+        primes = primesfrom2to(maxprime)
+
+    seq = np.zeros((dim, size), dtype=np.float32)
+    for d in range(dim):
+        base = primes[d]
+        j = 0
+        for i in range(start, start+size):
+            seq[d][j] = vdc(i, base)
+            j += 1
+        # seq[d] = [vdc(i, base) for i in range(start, start+size)]
+    return np.array(seq)
+
+cdef class HaltonGen(PRNG):
+
+    cdef size_t base, count
 
     def __init__(self, base=2, count=0):
         self.base = base
         self.count = count
 
-    def rand(self):
+    cpdef float rand(self):
         self.count += 1
         return vdc(self.count, self.base)
 
     def seed(self, n):
         # skips the first n results
         self.count = n
+
+cdef class HaltonGen_Deck(PRNG):
+
+    cdef size_t batch_size
+    cdef size_t nprimes, count, idx
+    cdef float[:,:] sequence
+
+    def __init__(self, size_t count=100, size_t nprimes=52, size_t batch_size=10**6):
+
+        self.batch_size = batch_size
+        self.nprimes = nprimes
+        self.count = count
+
+        self.sequence=halton_sequence(size=self.batch_size, dim=self.nprimes, start=self.count)
+        self.idx=0
+
+    cpdef float rand(self):
+        self.idx += 1
+        if self.idx==self.nprimes:
+            self.idx=0
+            self.count += 1
+
+        if self.count%self.batch_size==0 and self.idx==0:
+            self.sequence=halton_sequence(self.batch_size, dim=self.nprimes, start=self.count)
+
+        return self.sequence[self.idx][self.count % self.batch_size]
+
+
+    def seed(self, n):
+        # skips the first n results
+        self.count = n
+
+
 
 
 #Common used functions
@@ -168,31 +225,39 @@ def make_ts(gen, batches=1000, batch_size=36):
            for j in range(batches)]
     return np.array(ts).T
 
+@cython.boundscheck(False)
+@cython.wraparound(False)
 def make_ts_no_batch(PRNG gen, int decks=5):
-    cdef Py_ssize_t i
-    cdef np.ndarray ret = np.zeros((decks, len(cu.theoretical_probabilities)), dtype=float)
+    cdef Py_ssize_t i, j, l = len(cu.theoretical_probabilities)
+    cdef timeseries_t ret = np.zeros((decks, l), dtype=result)
+    cdef result_t[:] features
+
     for i in range(decks):
-        ret[i] = np.array(cu.get_features(deck(gen)))
+        features = cu.get_features(deck(gen))
+        for j in range(l):
+            ret[i, j] = features[j]
     return ret.T
 
 def f(deck):
     return list(cu.get_features(deck))
 
-def make_ts_no_batch_mp(PRNG gen, int n=5, int cores=4):
+def make_ts_no_batch_mp(PRNG gen, int n=10**6, int cores=4):
     cdef Py_ssize_t i
-    cdef np.ndarray ret = np.zeros((n, len(cu.theoretical_probabilities)), dtype=float)
+    cdef np.ndarray ret = np.zeros((n, len(cu.theoretical_probabilities)), dtype=result)
 
     decks = np.array([deck(gen) for i in range(n)])
 
 
     with Pool(cores) as pool:
-        ret_ = pool.map(f, decks)
+        ret_ = pool.map(f, decks, chunksize=4096)
     # ret_ = map(f, decks)
 
     for i, e in enumerate(ret_):
         ret[i] = e
 
     return ret.T
+
+
 
 
 def make_graphs(ts):
