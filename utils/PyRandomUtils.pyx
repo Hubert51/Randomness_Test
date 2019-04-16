@@ -1,4 +1,6 @@
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+import math
+
 import numpy as np
 import random
 import utils
@@ -148,7 +150,7 @@ def primesfrom2to(n):
     return np.r_[2,3,((3*np.nonzero(sieve)[0][1:]+1)|1)]
 
 cdef long maxprime = 1000
-cdef long[:] primes = primesfrom2to(maxprime)
+cdef np.int64_t[:] primes = np.array(primesfrom2to(maxprime), dtype=np.int64)
 
 
 cdef float[:,:] halton_sequence(size_t size, size_t dim, size_t start=0):
@@ -229,13 +231,18 @@ def make_ts(gen, batches=1000, batch_size=36):
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def make_ts_no_batch(PRNG gen, int decks=5):
+def make_ts_no_batch(PRNG gen, int decks=5, int prog=0):
     cdef Py_ssize_t i, j, l = len(cu.theoretical_probabilities)
     cdef timeseries_t ret = np.zeros((decks, l), dtype=result)
     cdef result_t[:] features
 
+    cdef int count = decks // 100
+
     for i in range(decks):
         features = cu.get_features(deck(gen))
+
+        if prog and i%count==0:
+            print("{}%".format(100 * i / count))
         for j in range(l):
             ret[i, j] = features[j]
     return ret.T
@@ -251,7 +258,7 @@ def make_ts_no_batch_mp(PRNG gen, int n=10**6, int cores=4):
 
 
     with Pool(cores) as pool:
-        ret_ = pool.map(f, decks, chunksize=4096)
+        ret_ = pool.map(f, decks, chunksize=math.ceil(n/(cores**2)))
     # ret_ = map(f, decks)
 
     for i, e in enumerate(ret_):

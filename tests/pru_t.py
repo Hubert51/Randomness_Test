@@ -19,13 +19,7 @@ def time_test_suite(gen_func, maxexp, name):
 
 if __name__ == '__main__':
     n = 7
-    # time_test_suite(lambda: pru.LCG_RANDU(1), n, "lcg")
-    # time_test_suite(pru.PyRandGen, n, 'python')
-    # time_test_suite(pru.HaltonGen, n, 'Halton')
-    # time_test_suite(lambda: pru.HaltonGen_Deck(batch_size=10**6), n, 'HaltonDeck')
-    print(time_test(pru.HaltonGen(base=3), 10**5))
-    print(time_test(pru.HaltonGen(base=31), 10**5))
-    print(time_test(pru.HaltonGen(base=51), 10**5))
-    print(time_test(pru.HaltonGen(base=3), 10**5))
-    print(time_test(pru.HaltonGen(base=31), 10**5))
-    print(time_test(pru.HaltonGen(base=51), 10**5))
+    time_test_suite(lambda: pru.LCG_RANDU(1), n, "lcg")
+    time_test_suite(pru.PyRandGen, n, 'python')
+    time_test_suite(pru.HaltonGen, n, 'Halton')
+    time_test_suite(lambda: pru.HaltonGen_Deck(batch_size=10**6), n, 'HaltonDeck')

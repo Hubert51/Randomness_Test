@@ -1,14 +1,16 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
+
+"""
+Attention: the bigdeal file does not upload since size limits. If you want test, you can generate yourself. 
+Generate big_deal_number set of bridge.
+"""
 
 import sys, os
 sys.path.append(os.path.dirname(os.getcwd()))
-
-
-# In[2]:
 
 
 import importlib
@@ -28,10 +30,6 @@ from matplotlib.ticker import FuncFormatter
 import random
 
 
-
-# In[3]:
-
-
 # Global variable
 '''
 this is the data size for professor's data, which is real game
@@ -40,19 +38,14 @@ num_batches = 717
 '''
 
 # following data is larger than real game
-batch_size = 100 #number of deals in a batch
-num_batches = 3500
+batch_size = 36 #number of deals in a batch
+num_batches = 2500
 
 # size of deal in file file_name
 big_deal_number = 1000000
 file_name = "{}.pbn".format(big_deal_number)
 
-
-
 DECK = np.array(range(1,53), dtype=np.int8)
-
-
-# In[4]:
 
 
 def generate_bit_sequence(ts, tp):
@@ -120,8 +113,6 @@ def feature_compare(RS, RS_name, tp ):
     return result
 
 
-# In[5]:
-
 
 def make_graphs_hist(feature_result, RS_name):
     dim = feature_result.shape[0]
@@ -146,160 +137,165 @@ def make_graphs_hist(feature_result, RS_name):
 # In[6]:
 
 
-tp = CardUtils.theoretical_probabilities
-RS = []
-RS_name = []
+if __name__ == '__main__':
 
+    tp = CardUtils.theoretical_probabilities
+    RS = []
+    RS_name = []
 
+    # bad PRNG
+    ts_bads = []
+    for i in range(10,30,3):
+        bad_model = pru.LCG(mod=2**i, a=1140671485, c=128201163, seed=1)
+        ts_bad = np.swapaxes( make_ts(bad_model), 0, 1 )
+        RS.append(ts_bad)
+        RS_name.append("bad2^{}".format(i))
+        # ts_bads.append(ts_bad)
+        # feature_series = generate_bit_sequence( ts_bad[:,0], tp[0] )
+        # print_result(feature_series)
 
-# In[ ]:
 
 
-# bad PRNG
-ts_bads = []
-for i in range(10,30,3):
-    bad_model = pru.LCG(mod=2**i, a=1140671485, c=128201163, seed=1)
-    ts_bad = np.swapaxes( make_ts(bad_model), 0, 1 )
-    RS.append(ts_bad)
-    RS_name.append("bad2^{}".format(i))
-    # ts_bads.append(ts_bad)
-    # feature_series = generate_bit_sequence( ts_bad[:,0], tp[0] )
-    # print_result(feature_series)
 
 
+    # In[8]:
 
 
+    # sobol PRNG
+    sobol = SobolGen(1)
+    ts_sobol = make_ts(sobol)
+    ts_sobol = np.swapaxes(ts_sobol, 0, 1)
+    RS.append(ts_sobol)
+    RS_name.append("Sobol")
 
-# In[ ]:
 
+    # In[9]:
 
-# sobol PRNG
-sobol = SobolGen(1)
-ts_sobol = make_ts(sobol)
-ts_sobol = np.swapaxes(ts_sobol, 0, 1)
-RS.append(ts_sobol)
-RS_name.append("Sobol")
 
+    # test for good PRNG
+    good = pru.PyRandGen(100)
+    ts_good = np.swapaxes( make_ts(good), 0, 1)
+    RS.append(ts_good)
+    RS_name.append("Good")
 
-# In[ ]:
 
+    # In[10]:
 
-# test for good PRNG
-good = pru.PyRandGen(100)
-ts_good = np.swapaxes( make_ts(good), 0, 1)
-RS.append(ts_good)
-RS_name.append("Good")
 
+    # test for hardware RNG
+    hardware = RdRandom()
+    ts_hardware = np.swapaxes( make_ts(hardware), 0, 1)
+    RS.append(ts_hardware)
+    RS_name.append("Hardware")
 
-# In[ ]:
 
+    # In[11]:
 
-# test for hardware RNG
-hardware = RdRandom()
-ts_hardware = np.swapaxes( make_ts(hardware), 0, 1)
-RS.append(ts_hardware)
-RS_name.append("Hardware")
 
+    # real game
+    result = pbn_parse.get_all_files(tod=["Morning", "Afternoon", "Evening"])
+    ts = []
+    for day in sorted(result.keys()):
+        ts.append(
+            sum((CardUtils.get_features(deal)
+                 for deal in result[day])) / len(result[day]))
+    ts = np.array(ts)
+    RS.append(ts)
+    RS_name.append("real game")
 
-# In[ ]:
 
 
-# real game
-result = pbn_parse.get_all_files(tod=["Morning", "Afternoon", "Evening"])
-ts = []
-for day in sorted(result.keys()):
-    ts.append(
-        sum((CardUtils.get_features(deal)
-             for deal in result[day])) / len(result[day]))
-ts = np.array(ts)
-RS.append(ts)
-RS_name.append("real game")
+    # In[12]:
 
 
+    # big deal game
+    result = pbn_parse.get_deals_from_file("../hand records/{}".format(file_name))
 
-# In[ ]:
 
 
-# big deal game
-result = pbn_parse.get_deals_from_file("../hand records/{}".format(file_name))
+    # In[13]:
 
 
+    total_deal = batch_size*num_batches
+    last_index = big_deal_number - total_deal - 1
+    start = random.randint(0,last_index)
+    end = start + total_deal
+    result = result[ start:end, : ]
 
-# In[ ]:
 
+    # In[14]:
 
-total_deal = batch_size*num_batches
-last_index = big_deal_number - total_deal - 1
-start = random.randint(0,last_index)
-end = start + total_deal
-result = result[ start:end, : ]
 
+    result = result.reshape((num_batches, batch_size, 52))
+    # print(result.shape)
 
-# In[ ]:
 
+    # In[15]:
 
-result = result.reshape((num_batches, batch_size, 52))
-# print(result.shape)
 
+    result = dict(enumerate(result))
 
-# In[ ]:
 
+    # In[16]:
 
-result = dict(enumerate(result)) 
 
+    ts_bigdeal = []
+    for day in sorted(result.keys()):
+        ts_bigdeal.append(
+            sum((CardUtils.get_features(deal)
+                 for deal in result[day])) / len(result[day]))
+    ts_bigdeal = np.array(ts_bigdeal)
+    RS.append(ts_bigdeal)
+    RS_name.append("BigDeal")
 
-# In[ ]:
 
+    # In[17]:
 
-ts_bigdeal = []
-for day in sorted(result.keys()):
-    ts_bigdeal.append(
-        sum((CardUtils.get_features(deal)
-             for deal in result[day])) / len(result[day]))
-ts_bigdeal = np.array(ts_bigdeal)
-RS.append(ts_bigdeal)
-RS_name.append("BigDeal")
 
+    feature_result = np.array( feature_compare(RS, RS_name, tp) )
 
-# In[ ]:
 
 
-feature_result = np.array( feature_compare(RS, RS_name, tp) )
+    # In[18]:
 
 
+    make_graphs_hist(feature_result, RS_name)
 
-# In[ ]:
 
+    # In[19]:
 
-make_graphs_hist(feature_result, RS_name)
 
+    # plt.savefig("test1.png")
+    print(feature_result)
 
-# In[ ]:
 
+    # In[20]:
 
-# plt.savefig("test1.png")
-print(feature_result)
 
+    error_sum = np.zeros( ( len(RS_name)) )
 
-# In[ ]:
+    for one_feature in feature_result:
+        for i in range( len(one_feature) ):
+            error_sum[i] += abs( one_feature[i] - 0.5 )
+    print("batch_size is {}".format(batch_size))
+    print("num_batches is {}".format(num_batches))
+    data = []
 
+    for i in range( len(RS_name) ):
+        data.append( (error_sum[i], RS_name[i]) )
+    data.sort()
 
-error_sum = np.zeros( ( len(RS_name)) )
+    f = open("result.txt", "a")
 
-for one_feature in feature_result:
-    for i in range( len(one_feature) ):
-        error_sum[i] += abs( one_feature[i] - 0.5 )
-print("batch_size is {}".format(batch_size))
-print("num_batches is {}".format(num_batches))
-data = []
+    f.write("batch_size is {}\n".format(batch_size))
+    f.write("num_batches is {}\n".format(num_batches))
+    for element in data:
+        print("{:10}: Sum of deviation is {:.4f}".format(element[1], element[0] ) )
+        f.write( "{:10}: Sum of deviation is {:.4f}\n".format(element[1], element[0] ))
 
-for i in range( len(RS_name) ):
-    data.append( (error_sum[i], RS_name[i]) )
-data.sort()
+    f.write("\n")
+    f.close()
 
-for element in data:
-    print("{:10}: Sum of deviation is {:.4f}".format(element[1], element[0] ) )
 
-        
-        
+
 
