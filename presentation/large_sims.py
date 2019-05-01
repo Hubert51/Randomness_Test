@@ -21,6 +21,28 @@ class countwrapper(pru.PRNG):
         self.randcount += 1
         return self.gen.rand()
 
+class urand_gen(pru.PRNG):
+
+    def make_buffer(self):
+        self.buffer = np.frombuffer(os.urandom(self.bufsize), dtype=np.uint16)
+
+    def __init__(self, bufsize = 1024 * 8):
+         self.bufsize = bufsize
+         self.make_buffer()
+         self.randcount = 0
+
+    def rand(self):
+        ret = self.buffer[self.randcount%len(self.buffer)] / np.iinfo(np.uint16).max
+        self.randcount += 1
+        if self.randcount%len(self.buffer) == 0:
+            self.make_buffer()
+        return ret
+
+    def seed(self, x):
+        pass
+
+    def reset(self):
+        pass
 
 def run_test(gen, n=10**6):
     ts = pru.make_ts_no_batch(gen, n)
@@ -182,6 +204,8 @@ if __name__ == '__main__':
     # res2 = run_test_with_saving(countwrapper(gen), 10 ** 9, 1000, 'halton_1bil.txt')
     # gen = pru.HaltonGen(base=19)
     # res2 = run_test_with_saving(countwrapper(gen), 10 ** 9, 1000, 'vdc19_1bil_app.txt')
+    gen = urand_gen()
+    res2 = run_test_with_saving(gen, 10 ** 8, 1000, 'windows_urand_1bil.txt')
 
     # fix_file('MT1bil.txt')
     # fix_file('RANDU1bil.txt')
@@ -191,4 +215,4 @@ if __name__ == '__main__':
     # fix_file('vdc19_1bil.txt')
 
 
-    to_latex()
+    # to_latex()
