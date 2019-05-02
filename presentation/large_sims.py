@@ -2,9 +2,12 @@ import math
 import os
 import re
 
-import utils.PyRandomUtils as pru
 import numpy as np
+import scipy.stats
+
 import utils.CardUtils as cu
+import utils.PyRandomUtils as pru
+
 
 class countwrapper(pru.PRNG):
     def __init__(self, gen):
@@ -166,10 +169,12 @@ def fix_file(infile):
             fout.write("diff : [{}]\n".format(','.join((str(x) for x in diff))))
 
 def to_latex():
+    alpha = (1-scipy.stats.norm.cdf(5))/2 # 5 sigma
     files = [f for f in os.listdir() if re.match(r'(.*)_1bil.txt$', f)]
     means = []
     sigma = []
     names = []
+    significance = []
     for f in files:
         with open(f, 'r') as fin:
             gen = re.match(r'(.*)_1bil.txt$', f).group(1)
@@ -182,12 +187,101 @@ def to_latex():
             sigmaline = next((x for x in lines if x.startswith('sigma:')))
             sigma.append(eval(sigmaline[sigmaline.index(':')+1:]))
 
+            totalsline = next((x for x in lines if x.startswith('total:')))
+            total = (eval(totalsline[totalsline.index(':') + 1:]))
+
+            significant = []
+
+            for i in range(len(cu.theoretical_probabilities)):
+                # test for significance on each feature
+                tp = cu.theoretical_probabilities[i]
+                mean = means[-1][i]
+                sigma_ = tp * (1-tp)
+
+
+                z = abs((mean - tp)) * np.sqrt(total/sigma_)
+                p = 1.0 - scipy.stats.norm.cdf(z)
+                significant.append(p < alpha)
+
+            significance.append(significant)
+
+
+
+
     print("Feature & {\\~ P} & ", end='')
-    print(' & '.join(names) + '\\\\')
+    print(' & '.join(names[i] if not any(significance[i]) else '\\bf %s'%names[i] for i in range(len(names))) + '\\\\')
 
     for i in range(len(cu.theoretical_probabilities)):
-        print("{} & {:6.3} & ".format(cu.feature_string[i], cu.theoretical_probabilities[i]), end='')
-        print(" & ".join(("{:6.3}".format(a[i]) for a in means))+' \\\\')
+        print("{} & {:.4E} & ".format(cu.feature_string[i], cu.theoretical_probabilities[i]), end='')
+        to_join = []
+        for j in range(len(means)):
+            if significance[j][i]:
+                    to_join.append('\\textbf{{{:.4E}}}'.format(means[j][i]))
+            else:
+                to_join.append('{:.4E}' .format(means[j][i]))
+
+        print(" & ".join(to_join)+' \\\\')
+
+def to_latex_deals():
+    alpha = (1-scipy.stats.norm.cdf(5))/2 # 5 sigma
+    means = [np.array([3.5012218e-01, 4.4482371e-01, 1.6553858e-01, 3.4579728e-02,
+       4.5188316e-03, 3.9757960e-04, 1.9394127e-05, 0.0000000e+00,
+       0.0000000e+00, 0.0000000e+00, 5.1985960e-02, 3.0596176e-01,
+       5.3713006e-01, 1.0492223e-01, 1.3556495e-02, 7.5637095e-04,
+       1.2897095e-03, 4.8485319e-05, 2.8495792e-01, 5.1441956e-01,
+       1.7615686e-01, 2.4465691e-02], dtype=np.float32),
+             ]
+    names = ['3_months', '1_year', 'BigDeal']
+    significance = []
+    for f in files:
+        with open(f, 'r') as fin:
+            gen = re.match(r'(.*)_1bil.txt$', f).group(1)
+            names.append(gen)
+
+            lines = fin.readlines()
+            meanline = next((x for x in lines if x.startswith('means:')))
+            means.append(eval(meanline[meanline.index(':')+1:]))
+
+            sigmaline = next((x for x in lines if x.startswith('sigma:')))
+            sigma.append(eval(sigmaline[sigmaline.index(':')+1:]))
+
+            totalsline = next((x for x in lines if x.startswith('total:')))
+            total = (eval(totalsline[totalsline.index(':') + 1:]))
+
+            significant = []
+
+            for i in range(len(cu.theoretical_probabilities)):
+                # test for significance on each feature
+                tp = cu.theoretical_probabilities[i]
+                mean = means[-1][i]
+                sigma_ = tp * (1-tp)
+
+
+                z = abs((mean - tp)) * np.sqrt(total/sigma_)
+                p = 1.0 - scipy.stats.norm.cdf(z)
+                significant.append(p < alpha)
+
+            significance.append(significant)
+
+
+
+
+    print("Feature & {\\~ P} & ", end='')
+    print(' & '.join(names[i] if not any(significance[i]) else '\\bf %s'%names[i] for i in range(len(names))) + '\\\\')
+
+    for i in range(len(cu.theoretical_probabilities)):
+        print("{} & {:.4E} & ".format(cu.feature_string[i], cu.theoretical_probabilities[i]), end='')
+        to_join = []
+        for j in range(len(means)):
+            if significance[j][i]:
+                    to_join.append('\\textbf{{{:.4E}}}'.format(means[j][i]))
+            else:
+                to_join.append('{:.4E}' .format(means[j][i]))
+
+        print(" & ".join(to_join)+' \\\\')
+
+
+
 
 if __name__ == '__main__':
     # gen = pru.PyRandGen(1)
@@ -195,7 +289,7 @@ if __name__ == '__main__':
     # gen = pru.PyRandGen(1)
     # res2 = run_test_with_saving(countwrapper(gen), 10 ** 9, 1000, 'MT1bil.txt')
     # gen = pru.LCG_RANDU(1)
-    # res2 = run_test_with_saving(countwrapper(gen), 10 ** 9, 1000, 'RANDU1bil.txt')
+    # res2 = run_test_with_saving(countwrapper(gen), 10 ** 9, 1000, 'RANDU_1bil.txt')
     # gen = pru.LCG(mod=2**16, a=5, seed=1, c=0)
     # res2 = run_test_with_saving(countwrapper(gen), 10 ** 9, 1000, 'badLCG_1bil.txt')
     # gen = pru.LCG(mod=2**32, a=1664525, c=1013904223, seed=1)
@@ -204,15 +298,15 @@ if __name__ == '__main__':
     # res2 = run_test_with_saving(countwrapper(gen), 10 ** 9, 1000, 'halton_1bil.txt')
     # gen = pru.HaltonGen(base=19)
     # res2 = run_test_with_saving(countwrapper(gen), 10 ** 9, 1000, 'vdc19_1bil_app.txt')
-    gen = urand_gen()
-    res2 = run_test_with_saving(gen, 10 ** 8, 1000, 'windows_urand_1bil.txt')
+    # gen = urand_gen()
+    # res2 = run_test_with_saving(gen, 10 ** 8, 1000, 'windows_urand_1bil.txt')
 
     # fix_file('MT1bil.txt')
-    # fix_file('RANDU1bil.txt')
+    # fix_file('RANDU_1bil.txt')
     # fix_file('badLCG_1bil.txt')
     # fix_file('goodLCG_1bil.txt')
     # fix_file('halton_1bil.txt')
     # fix_file('vdc19_1bil.txt')
 
 
-    # to_latex()
+    to_latex()
